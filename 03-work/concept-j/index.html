@@ -1161,13 +1161,13 @@
   <!-- BACKSTAGE -->
   <div class="backstage">
     <video class="backstage__clip" autoplay muted loop playsinline>
-      <source src="https://github.com/sarahdorsten/wonderwall/releases/download/v1.0/programs-1.mp4" type="video/mp4" />
+      <source src="../../04-sources/assets/videos/backstage/programs-1.mp4" type="video/mp4" />
     </video>
     <video class="backstage__clip" autoplay muted loop playsinline>
-      <source src="https://github.com/sarahdorsten/wonderwall/releases/download/v1.0/individual.mp4" type="video/mp4" />
+      <source src="../../04-sources/assets/videos/backstage/individual.mp4" type="video/mp4" />
     </video>
     <video class="backstage__clip" autoplay muted loop playsinline>
-      <source src="https://github.com/sarahdorsten/wonderwall/releases/download/v1.0/grids-1.mp4" type="video/mp4" />
+      <source src="../../04-sources/assets/videos/backstage/grids-1.mp4" type="video/mp4" />
     </video>
   </div>
 
@@ -1320,31 +1320,30 @@
 
   <script>
     const ASSETS = '../../04-sources/assets/';
-    const VIDEO_CDN = 'https://github.com/sarahdorsten/wonderwall/releases/download/v1.0/';
 
     // ── Hero concept data (same as hero-showreel A / B / C)
     const CONCEPTS = {
       a: {
         interval: 4000,
         clips: [
-          { type: 'video', src: VIDEO_CDN + 'mountain-top.mp4',           label: 'A Mountaintop &nbsp;&middot;&nbsp; Inside a Room' },
-          { type: 'video', src: VIDEO_CDN + 'lion.mp4',         seek: 12,  label: "Lion's Den &nbsp;&middot;&nbsp; Built in a Day" },
-          { type: 'video', src: VIDEO_CDN + 'rock-water.mp4',              label: 'Rock &nbsp;&middot;&nbsp; Real Time' },
-          { type: 'video', src: VIDEO_CDN + 'red-sea-part-action.mp4', seek: 7, label: 'Red Sea &nbsp;&middot;&nbsp; Unreal Engine' },
-          { type: 'video', src: VIDEO_CDN + 'noah-arc-transition.mp4',     label: "Noah's Ark &nbsp;&middot;&nbsp; To Scale" },
-          { type: 'video', src: VIDEO_CDN + 'basketball-long.mp4',         label: 'Live Scale' },
-          { type: 'video', src: VIDEO_CDN + 'scorpian-arena-crush.mp4', seek: 9, label: 'A Coliseum &nbsp;&middot;&nbsp; On Stage' },
+          { type: 'video', src: ASSETS + 'videos/messages/mountain-top.mp4',           label: 'A Mountaintop &nbsp;&middot;&nbsp; Inside a Room' },
+          { type: 'video', src: ASSETS + 'videos/messages/lion.mp4',         seek: 12,  label: "Lion's Den &nbsp;&middot;&nbsp; Built in a Day" },
+          { type: 'video', src: ASSETS + 'videos/messages/rock-water.mp4',              label: 'Rock &nbsp;&middot;&nbsp; Real Time' },
+          { type: 'video', src: ASSETS + 'videos/messages/red-sea-part-action.mp4', seek: 7, label: 'Red Sea &nbsp;&middot;&nbsp; Unreal Engine' },
+          { type: 'video', src: ASSETS + 'videos/messages/noah-arc-transition.mp4',     label: "Noah's Ark &nbsp;&middot;&nbsp; To Scale" },
+          { type: 'video', src: ASSETS + 'videos/messages/basketball-long.mp4',         label: 'Live Scale' },
+          { type: 'video', src: ASSETS + 'videos/messages/scorpian-arena-crush.mp4', seek: 9, label: 'A Coliseum &nbsp;&middot;&nbsp; On Stage' },
         ]
       },
       b: {
         interval: 4500,
         clips: [
           { type: 'image', src: ASSETS + 'images/events/christmas/christmas-hero-crowd-forest.webp', label: '3,400 People &nbsp;&middot;&nbsp; Every Sunday' },
-          { type: 'video', src: VIDEO_CDN + 'red-sea-part-action.mp4', seek: 7, label: 'Red Sea &nbsp;&middot;&nbsp; Real Time &nbsp;&middot;&nbsp; Unreal Engine' },
+          { type: 'video', src: ASSETS + 'videos/messages/red-sea-part-action.mp4', seek: 7, label: 'Red Sea &nbsp;&middot;&nbsp; Real Time &nbsp;&middot;&nbsp; Unreal Engine' },
           { type: 'image', src: ASSETS + 'images/events/super-bowl/super-bowl-orange-concert.webp',  label: 'Super Bowl &nbsp;&middot;&nbsp; Same Stage' },
-          { type: 'video', src: VIDEO_CDN + 'lion.mp4', seek: 12, label: "Lion's Den &nbsp;&middot;&nbsp; Built in a Day" },
+          { type: 'video', src: ASSETS + 'videos/messages/lion.mp4', seek: 12, label: "Lion's Den &nbsp;&middot;&nbsp; Built in a Day" },
           { type: 'image', src: ASSETS + 'images/events/easter/easter-overhead-wide.webp',           label: 'Easter &nbsp;&middot;&nbsp; 3,400 People' },
-          { type: 'video', src: VIDEO_CDN + 'mountain-top.mp4',                         label: 'A Mountaintop &nbsp;&middot;&nbsp; Inside a Room' },
+          { type: 'video', src: ASSETS + 'videos/messages/mountain-top.mp4',                         label: 'A Mountaintop &nbsp;&middot;&nbsp; Inside a Room' },
         ]
       },
       c: {
@@ -1468,13 +1467,14 @@
       { type: 'img', primary: IMG + 'music/text-2.webp',                                 fallback: IMG + 'music/text-1.webp',                                event: 'Message' },
     ];
 
+    const VID = ASSETS + 'videos/messages/';
     const TEACHING_REEL = [
-      { type: 'video', src: VIDEO_CDN + 'mountain-top.mp4',          event: 'A Mountaintop' },
-      { type: 'video', src: VIDEO_CDN + 'lion.mp4',          seek: 12, event: "Lion's Den" },
-      { type: 'video', src: VIDEO_CDN + 'rock-water.mp4',             event: 'Rock' },
-      { type: 'video', src: VIDEO_CDN + 'red-sea-part-action.mp4', seek: 7, event: 'Red Sea' },
-      { type: 'video', src: VIDEO_CDN + 'noah-arc-transition.mp4',    event: "Noah's Ark" },
-      { type: 'video', src: VIDEO_CDN + 'basketball-long.mp4',        event: 'Live Scale' },
+      { type: 'video', src: VID + 'mountain-top.mp4',          event: 'A Mountaintop' },
+      { type: 'video', src: VID + 'lion.mp4',          seek: 12, event: "Lion's Den" },
+      { type: 'video', src: VID + 'rock-water.mp4',             event: 'Rock' },
+      { type: 'video', src: VID + 'red-sea-part-action.mp4', seek: 7, event: 'Red Sea' },
+      { type: 'video', src: VID + 'noah-arc-transition.mp4',    event: "Noah's Ark" },
+      { type: 'video', src: VID + 'basketball-long.mp4',        event: 'Live Scale' },
     ];
 
     function buildReel(key) {
