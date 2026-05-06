@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wonderwall — Crossroads Church</title>
+  <link rel="stylesheet" href="https://use.typekit.net/yax3ayc.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/klz4bgj.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;0,900;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF8200;
+      --navy: #102230;
+      --navy-mid: #1a2f40;
+      --navy-light: #253746;
+      --white: #ffffff;
+      --fd: acumin-pro, 'Barlow', sans-serif;
+      --fc: acumin-pro-extracondensed, 'Barlow Condensed', sans-serif;
+      --texture: url('https://crds-media.imgix.net/5keOksLK6PtMmlTnUQQeRT/86d3609bea8e6725c7a0b38a9a5530f3/texture-topo-dark-50_2x.png');
+    }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--fd);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: var(--texture);
+      background-size: 500px;
+      opacity: 0.13;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      min-height: 580px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../../04-sources/assets/images/events/christmas/christmas-hero-crowd-forest.webp');
+      background-size: cover;
+      background-position: center 20%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(16,34,48,0.08) 0%,
+        transparent 30%,
+        rgba(16,34,48,0.45) 58%,
+        rgba(16,34,48,0.88) 80%,
+        var(--navy) 100%
+      );
+    }
+
+    .hero__title-card {
+      position: relative;
+      z-index: 10;
+      padding: 0 clamp(20px, 5vw, 56px) clamp(40px, 8vh, 72px);
+    }
+
+    .hero__rule {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+      margin-bottom: clamp(20px, 4vh, 36px);
+    }
+
+    .hero__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(38px, 9.5vw, 84px);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      animation: fadeUp 0.9s ease both;
+      animation-delay: 0.1s;
+    }
+
+    .hero__headline em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .hero__meta {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.9s ease both;
+      animation-delay: 0.25s;
+    }
+
+    .hero__meta-item {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .hero__meta-item + .hero__meta-item::before {
+      content: '·';
+      margin-right: 20px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- DIVIDER — "EVERY WEEK" motif ---- */
+    .motif {
+      background: var(--navy-mid);
+      padding: 14px clamp(20px, 5vw, 56px);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      overflow: hidden;
+    }
+
+    .motif__text {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,130,0,0.5);
+      white-space: nowrap;
+    }
+
+    .motif__line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,130,0,0.12);
+    }
+
+    /* ---- OPENING STATEMENT ---- */
+    .statement {
+      background: var(--navy);
+      padding: clamp(72px, 14vh, 120px) clamp(20px, 6vw, 80px);
+    }
+
+    .statement__quote {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(28px, 6.5vw, 60px);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      max-width: 900px;
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .statement__quote::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.1em;
+      bottom: 0.1em;
+      width: 3px;
+      background: var(--orange);
+    }
+
+    .statement__source {
+      margin-top: 28px;
+      margin-left: 22px;
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ---- VIDEO ---- */
+    .video-section {
+      position: relative;
+      width: 100%;
+      background: #000;
+      line-height: 0;
+    }
+
+    .video-section video {
+      width: 100%;
+      display: block;
+      max-height: 80vh;
+      object-fit: cover;
+    }
+
+    .video-section__caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px clamp(20px, 5vw, 48px);
+      background: linear-gradient(transparent, rgba(16,34,48,0.85));
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ---- WHAT THIS IS ---- */
+    .what {
+      background: var(--navy-mid);
+      padding: clamp(64px, 12vh, 104px) clamp(20px, 6vw, 80px);
+    }
+
+    .what__body {
+      max-width: 640px;
+    }
+
+    .what__graph {
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height: 1.75;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 24px;
+    }
+
+    .what__graph:last-child { margin-bottom: 0; }
+
+    .what__graph strong {
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .what__stat {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(22px, 4.5vw, 36px);
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin: 36px 0;
+      padding-left: 18px;
+      border-left: 3px solid var(--orange);
+    }
+
+    /* ---- SPEC ---- */
+    .spec {
+      background: var(--navy);
+      padding: clamp(64px, 12vh, 104px) clamp(20px, 6vw, 80px);
+    }
+
+    .section-label {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,130,0,0.2);
+    }
+
+    .spec__categories {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    @media (min-width: 600px) {
+      .spec__categories { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 900px) {
+      .spec__categories { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .spec__cat-label {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,130,0,0.2);
+    }
+
+    .spec__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .spec__list li {
+      font-family: var(--fd);
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.75);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .spec__list li .qty {
+      font-family: var(--fc);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    /* ---- LOGOS ---- */
+    .logos {
+      background: var(--navy-mid);
+      padding: clamp(52px, 10vh, 88px) clamp(20px, 5vw, 56px);
+    }
+
+    .logos__grid {
+      margin-top: 8px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+
+    @media (min-width: 600px) {
+      .logos__grid { grid-template-columns: repeat(6, 1fr); }
+    }
+
+    @media (min-width: 900px) {
+      .logos__grid { grid-template-columns: repeat(9, 1fr); }
+    }
+
+    .logos__cell {
+      background: var(--navy-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 16px;
+    }
+
+    .logos__cell img {
+      height: 20px;
+      width: auto;
+      max-width: 90px;
+      object-fit: contain;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: 0.35;
+      transition: opacity 0.2s;
+    }
+
+    .logos__cell:hover img { opacity: 0.7; }
+
+    /* ---- ROLES ---- */
+    .roles {
+      background: var(--navy);
+      padding: clamp(64px, 12vh, 104px) clamp(20px, 5vw, 52px);
+    }
+
+    .roles__grid {
+      margin-top: 8px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+
+    @media (min-width: 760px) {
+      .roles__grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .role-card {
+      background: var(--navy-mid);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border-top: 2px solid transparent;
+    }
+
+    /* Each card gets a distinct accent */
+    .role-card--primary {
+      border-top-color: var(--orange);
+    }
+
+    .role-card--secondary {
+      border-top-color: rgba(255,255,255,0.3);
+    }
+
+    .role-card--tertiary {
+      border-top-color: rgba(255,255,255,0.12);
+    }
+
+    .role-card__img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: filter 0.4s ease;
+    }
+
+    .role-card--primary .role-card__img {
+      filter: grayscale(20%) brightness(0.85);
+    }
+
+    .role-card--secondary .role-card__img {
+      filter: grayscale(60%) brightness(0.7);
+    }
+
+    .role-card--tertiary .role-card__img {
+      filter: grayscale(80%) brightness(0.55) sepia(10%);
+    }
+
+    .role-card:hover .role-card__img {
+      filter: grayscale(0%) brightness(0.95);
+    }
+
+    .role-card__body {
+      padding: 24px 22px 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .role-card__cat {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .role-card--primary .role-card__cat { color: var(--orange); }
+    .role-card--secondary .role-card__cat { color: rgba(255,255,255,0.5); }
+    .role-card--tertiary .role-card__cat { color: rgba(255,255,255,0.3); }
+
+    .role-card__title {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(20px, 3vw, 24px);
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .role-card__badge {
+      display: inline-block;
+      font-family: var(--fc);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 2px 7px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .role-card__desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 22px;
+      flex: 1;
+    }
+
+    .role-card__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 15px 20px;
+      margin: 0 -0px;
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .role-card__btn::after { content: '→'; }
+
+    /* Card 1: solid orange button */
+    .role-card--primary .role-card__btn {
+      background: var(--orange);
+      color: var(--navy);
+    }
+
+    .role-card--primary .role-card__btn:hover {
+      background: #e07100;
+    }
+
+    /* Card 2: disabled/muted */
+    .role-card--secondary .role-card__btn {
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .role-card--secondary .role-card__btn::after { content: '—'; }
+
+    /* Card 3: ghost outline */
+    .role-card--tertiary .role-card__btn {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .role-card--tertiary .role-card__btn:hover {
+      border-color: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* ---- APPLY ---- */
+    .apply {
+      background: var(--navy-mid);
+      padding: clamp(80px, 15vh, 140px) clamp(20px, 6vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background glow — orange right-side wash */
+    .apply::after {
+      content: '';
+      position: absolute;
+      right: -10%;
+      top: -20%;
+      width: 60%;
+      height: 140%;
+      background: radial-gradient(ellipse at center, rgba(255,130,0,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .apply__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .apply__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(36px, 8vw, 72px);
+      line-height: 0.93;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .apply__body {
+      font-size: clamp(15px, 2.2vw, 17px);
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 40px;
+      max-width: 480px;
+    }
+
+    .apply__stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 44px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 17px 22px;
+      font-family: var(--fc);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .btn--primary {
+      background: var(--orange);
+      color: var(--navy);
+      transition: background 0.2s;
+    }
+    .btn--primary:hover { background: #e07100; }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.22);
+      transition: border-color 0.2s;
+    }
+    .btn--ghost:hover { border-color: rgba(255,255,255,0.5); }
+
+    .btn--muted {
+      background: transparent;
+      color: rgba(255,255,255,0.25);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: default;
+    }
+
+    .apply__contact {
+      font-size: 13px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .apply__contact a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    .apply__contact a:hover { text-decoration: underline; }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #0c1d2a;
+      padding: 28px clamp(20px, 6vw, 80px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer__id {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer__id span { color: var(--orange); }
+
+    .footer__site {
+      font-family: var(--fc);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__title-card">
+    <div class="hero__rule"></div>
+    <h1 class="hero__headline">Built for<br>broadcast.<br><em>Used for</em><br>worship.</h1>
+    <div class="hero__meta">
+      <span class="hero__meta-item">Crossroads Church</span>
+      <span class="hero__meta-item">Cincinnati, OH</span>
+      <span class="hero__meta-item">Virtual Production</span>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER MOTIF -->
+<div class="motif">
+  <span class="motif__text">Every Week</span>
+  <div class="motif__line"></div>
+  <span class="motif__text">Every Week</span>
+  <div class="motif__line"></div>
+  <span class="motif__text">Every Week</span>
+  <div class="motif__line"></div>
+  <span class="motif__text">Every Week</span>
+</div>
+
+<!-- OPENING STATEMENT — Church Production Magazine -->
+<section class="statement">
+  <blockquote>
+    <p class="statement__quote">"Quite possibly one of the most ambitious technology-driven worship environments ever attempted in a North American church."</p>
+    <p class="statement__source">Church Production Magazine</p>
+  </blockquote>
+</section>
+
+<!-- VIDEO -->
+<div class="video-section">
+  <video autoplay muted loop playsinline>
+    <source src="../../04-sources/assets/videos/music/block-1.mp4" type="video/mp4" />
+  </video>
+  <div class="video-section__caption">Live production · Crossroads Oakley · Cincinnati</div>
+</div>
+
+<!-- MOTIF -->
+<div class="motif">
+  <div class="motif__line"></div>
+  <span class="motif__text">Every Week</span>
+  <div class="motif__line"></div>
+  <span class="motif__text">Every Week</span>
+  <div class="motif__line"></div>
+  <span class="motif__text">Every Week</span>
+  <div class="motif__line"></div>
+</div>
+
+<!-- WHAT THIS IS -->
+<section class="what">
+  <div class="section-label">What this is</div>
+  <div class="what__body">
+
+    <p class="what__graph">Crossroads runs a <strong>broadcast-grade virtual production environment</strong> in front of a live congregation every week. Real-time Unreal Engine. GhostFrame on three camera slices. Eight RED Komodo cameras. Full L-ISA spatial audio from a 3,400-seat room.</p>
+
+    <div class="what__stat">No pre-render.<br>No second take.</div>
+
+    <p class="what__graph">The stage transforms completely for every event — Christmas, Super Bowl, Easter, an immersive experience called Real Encounters Journey. Same physical structure. Radically different worlds, built and switched live.</p>
+
+    <p class="what__graph">"<strong>These systems allow a small weekly crew to run a production comparable to major touring or broadcast events.</strong>"<br><br>
+    — Craig Dockery, Creative Director, Crossroads Church</p>
+
+  </div>
+</section>
+
+<!-- SPEC -->
+<section class="spec">
+  <div class="section-label">Technical Specification</div>
+  <div class="spec__categories">
+
+    <div>
+      <div class="spec__cat-label">Media Servers</div>
+      <ul class="spec__list">
+        <li><span>Disguise Gx3+</span><span class="qty">×7</span></li>
+        <li><span>Disguise Gx3</span><span class="qty">×10</span></li>
+        <li><span>Disguise Rx3</span><span class="qty">×12</span></li>
+        <li><span>Silverdraft Demon</span><span class="qty">×4</span></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="spec__cat-label">Cameras &amp; Video</div>
+      <ul class="spec__list">
+        <li><span>RED Komodo-X 6K</span><span class="qty">×8</span></li>
+        <li>Ross Ultrix Core</li>
+        <li>Ross Acuity <span class="qty">×2</span></li>
+        <li>GhostFrame · 3 slices</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="spec__cat-label">LED Surfaces</div>
+      <ul class="spec__list">
+        <li>ROE BP v2</li>
+        <li>ROE Vanish</li>
+        <li>ROE BM4 v2</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="spec__cat-label">Audio</div>
+      <ul class="spec__list">
+        <li>L-Acoustics L-ISA</li>
+        <li>DiGiCo SD7 (FOH)</li>
+        <li>DiGiCo SD5 (Monitors)</li>
+        <li>360° surround</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="spec__cat-label">Tracking</div>
+      <ul class="spec__list">
+        <li>Stype RedSpy 4.0</li>
+        <li>Stage Precision Grid</li>
+        <li>TAIT Navigator</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="spec__cat-label">Creative Platforms</div>
+      <ul class="spec__list">
+        <li>Unreal Engine</li>
+        <li>Notch</li>
+        <li>TouchDesigner</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section class="logos">
+  <div class="section-label">Built with</div>
+  <div class="logos__grid">
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/disguise.svg" alt="Disguise" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/unreal-engine.svg" alt="Unreal Engine" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/notch.svg" alt="Notch" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/roe.svg" alt="ROE" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/tait.svg" alt="TAIT" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/ross.svg" alt="Ross" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/megapixel.svg" alt="Megapixel" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/digico.svg" alt="DiGiCo" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/stype.svg" alt="Stype" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/l-acoustics.svg" alt="L-Acoustics" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/stage-precision.svg" alt="Stage Precision" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/carbon-for-unreal.svg" alt="Carbon for Unreal" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/visual-endeavors.svg" alt="Visual Endeavors" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/lightborne.svg" alt="Lightborne" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/silent-partners.svg" alt="Silent Partners Studio" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/possible.svg" alt="Possible" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/luz.svg" alt="Luz" /></div>
+    <div class="logos__cell"><img src="../../04-sources/assets/logos/raw-cereal.svg" alt="Raw Cereal" /></div>
+  </div>
+</section>
+
+<!-- MOTIF -->
+<div class="motif">
+  <span class="motif__text">Every Week</span>
+  <div class="motif__line"></div>
+  <span class="motif__text">Every Week</span>
+  <div class="motif__line"></div>
+  <span class="motif__text">Every Week</span>
+  <div class="motif__line"></div>
+</div>
+
+<!-- ROLES -->
+<section class="roles">
+  <div class="section-label">Open Positions</div>
+  <div class="roles__grid">
+
+    <div class="role-card role-card--primary">
+      <img class="role-card__img"
+           src="../../04-sources/assets/images/roles/tech.jpg"
+           alt="Technology role" loading="lazy" />
+      <div class="role-card__body">
+        <div class="role-card__cat">Technology</div>
+        <h3 class="role-card__title">Disguise Programmer</h3>
+        <p class="role-card__desc">Build and operate the real-time render pipeline. Disguise + Unreal Engine + live camera tracking — in front of 3,400 people, no pre-render, every week.</p>
+      </div>
+      <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings/details/Disguise-Programmer_R-100100"
+         class="role-card__btn" target="_blank" rel="noopener">Apply Now</a>
+    </div>
+
+    <div class="role-card role-card--secondary">
+      <img class="role-card__img"
+           src="../../04-sources/assets/images/roles/creative.jpg"
+           alt="Creative role" loading="lazy" />
+      <div class="role-card__body">
+        <div class="role-card__cat">Creative Technology</div>
+        <h3 class="role-card__title">Technical Artist <span class="role-card__badge">Coming Soon</span></h3>
+        <p class="role-card__desc">Bridge content and system. Unreal, Notch, or both. You know what survives a live cut and what doesn't.</p>
+      </div>
+      <span class="role-card__btn">Posting Soon</span>
+    </div>
+
+    <div class="role-card role-card--tertiary">
+      <img class="role-card__img"
+           src="../../04-sources/assets/images/roles/production-1.jpg"
+           alt="Production role" loading="lazy" />
+      <div class="role-card__body">
+        <div class="role-card__cat">All Disciplines</div>
+        <h3 class="role-card__title">Creative · Tech · Production</h3>
+        <p class="role-card__desc">More roles open as the team scales. Virtual production, live broadcast, immersive audio — check all current listings.</p>
+      </div>
+      <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings"
+         class="role-card__btn" target="_blank" rel="noopener">View All Roles</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="apply">
+  <div class="apply__inner">
+    <div class="section-label">Join the crew</div>
+    <h2 class="apply__headline">The work<br>is real.</h2>
+    <p class="apply__body">A small team running broadcast-grade production every week. The kind of work that used to require a touring production company.</p>
+    <div class="apply__stack">
+      <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings/details/Disguise-Programmer_R-100100"
+         class="btn btn--primary" target="_blank" rel="noopener">
+        <span>Apply — Disguise Programmer</span>
+        <span>→</span>
+      </a>
+      <div class="btn btn--muted">
+        <span>Technical Artist — Posting Soon</span>
+        <span>—</span>
+      </div>
+      <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings"
+         class="btn btn--ghost" target="_blank" rel="noopener">
+        <span>View All Roles</span>
+        <span>→</span>
+      </a>
+    </div>
+    <p class="apply__contact">
+      Questions about the work, the team, or the environment?<br>
+      <a href="mailto:wonderwall@crossroads.net">wonderwall@crossroads.net</a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__id"><span>Wonderwall</span> &nbsp;·&nbsp; Crossroads Church &nbsp;·&nbsp; Cincinnati, OH</div>
+  <a href="https://crossroads.net" class="footer__site" target="_blank" rel="noopener">crossroads.net</a>
+</footer>
+
+</body>
+</html>

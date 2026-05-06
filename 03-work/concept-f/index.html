@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wonderwall — Crossroads Church</title>
+  <link rel="stylesheet" href="https://use.typekit.net/yax3ayc.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/klz4bgj.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;0,900;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF8200;
+      --navy: #102230;
+      --navy-mid: #1a2f40;
+      --navy-light: #253746;
+      --white: #ffffff;
+      --fd: acumin-pro, 'Barlow', sans-serif;
+      --fc: acumin-pro-extracondensed, 'Barlow Condensed', sans-serif;
+      --texture: url('https://crds-media.imgix.net/5keOksLK6PtMmlTnUQQeRT/86d3609bea8e6725c7a0b38a9a5530f3/texture-topo-dark-50_2x.png');
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--fd);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: var(--texture);
+      background-size: 500px;
+      opacity: 0.13;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      min-height: 560px;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('../../04-sources/assets/images/events/christmas/christmas-hero-crowd-forest.webp');
+      background-size: cover;
+      background-position: center 25%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(16,34,48,0.1) 0%,
+        transparent 35%,
+        rgba(16,34,48,0.5) 65%,
+        rgba(16,34,48,0.92) 88%,
+        var(--navy) 100%
+      );
+    }
+
+    .hero__lower-third {
+      position: absolute;
+      bottom: clamp(32px, 7vh, 64px);
+      left: clamp(20px, 5vw, 52px);
+      right: clamp(20px, 5vw, 52px);
+      z-index: 10;
+    }
+
+    .hero__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 14px;
+    }
+
+    .hero__eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .hero__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(40px, 10vw, 80px);
+      line-height: 0.93;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .hero__sub {
+      margin-top: 18px;
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ---- SCENE REEL ---- */
+    #transformation {
+      position: relative;
+      height: 750vh;
+      background: var(--navy);
+    }
+
+    .scene-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scroll-wrapper {
+      position: relative;
+      width: 94vw;
+      aspect-ratio: 16 / 9;
+      max-height: 78vh;
+      overflow: hidden;
+      outline: 1px solid rgba(255,130,0,0.18);
+      outline-offset: -1px;
+    }
+
+    @media (min-width: 768px) {
+      .scroll-wrapper { width: 80vw; }
+    }
+
+    .scene-layer {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .scene-layer.active { opacity: 1; }
+
+    .scene-layer img,
+    .scene-layer video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .scene-ui {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .scene-counter {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--orange);
+      text-transform: uppercase;
+    }
+
+    .scene-descriptor {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(16px, 3.5vw, 28px);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .scene-descriptor.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- QUOTE A — first-of-its-kind ---- */
+    .quote-a {
+      background: var(--navy);
+      padding: clamp(80px, 14vh, 130px) clamp(20px, 6vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-a::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.15em;
+      right: 3vw;
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(180px, 32vw, 360px);
+      color: rgba(255,130,0,0.05);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .quote-a__source {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 28px;
+    }
+
+    .quote-a__text {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(30px, 7vw, 62px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+      max-width: 860px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---- QUOTE B — operator angle ---- */
+    .quote-b {
+      background: var(--navy-light);
+      padding: clamp(52px, 10vh, 96px) clamp(20px, 6vw, 80px);
+      border-top: 1px solid rgba(255,130,0,0.15);
+    }
+
+    .quote-b__text {
+      font-family: var(--fd);
+      font-size: clamp(17px, 2.8vw, 24px);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.55;
+      color: rgba(255,255,255,0.85);
+      max-width: 680px;
+    }
+
+    .quote-b__text strong {
+      font-style: normal;
+      font-weight: 900;
+      color: var(--white);
+    }
+
+    .quote-b__source {
+      margin-top: 22px;
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    /* ---- SPEC ---- */
+    .spec {
+      background: var(--navy);
+      padding: clamp(64px, 12vh, 104px) clamp(20px, 6vw, 80px);
+    }
+
+    .section-label {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      flex: 1;
+      height: 1px;
+      background: rgba(255,130,0,0.2);
+    }
+
+    .spec__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    @media (min-width: 600px) {
+      .spec__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0 56px;
+      }
+    }
+
+    .spec__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .spec__label {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      flex-shrink: 0;
+      min-width: 90px;
+    }
+
+    .spec__value {
+      font-family: var(--fd);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--white);
+      text-align: right;
+    }
+
+    .spec__value .qty {
+      font-family: var(--fc);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--orange);
+      margin-left: 5px;
+    }
+
+    /* ---- LOGOS ---- */
+    .logos {
+      padding: clamp(48px, 9vh, 80px) 0;
+      background: var(--navy);
+      overflow: hidden;
+    }
+
+    .logos__label {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      text-align: center;
+      margin-bottom: 28px;
+      padding: 0 20px;
+    }
+
+    .logos__mask {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    .logos__track {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      padding: 0 22px;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+
+    .logos__track:hover { animation-play-state: paused; }
+
+    .logos__item {
+      display: flex;
+      align-items: center;
+      height: 24px;
+      flex-shrink: 0;
+      opacity: 0.38;
+      filter: brightness(0) invert(1);
+      transition: opacity 0.2s;
+    }
+
+    .logos__item:hover { opacity: 0.7; }
+
+    .logos__item img {
+      height: 100%;
+      width: auto;
+      max-width: 110px;
+      object-fit: contain;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ---- ROLES ---- */
+    .roles {
+      background: var(--navy-mid);
+      padding: clamp(64px, 12vh, 104px) clamp(20px, 5vw, 52px);
+    }
+
+    .roles__grid {
+      margin-top: 8px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+
+    @media (min-width: 760px) {
+      .roles__grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .role-card {
+      background: rgba(16,34,48,0.55);
+      padding: 30px 26px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    .role-card:hover::after { transform: scaleX(1); }
+
+    .role-card__cat {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .role-card__title {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(20px, 3vw, 26px);
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .role-card__badge {
+      display: inline-block;
+      font-family: var(--fc);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 2px 7px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    .role-card__desc {
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 26px;
+    }
+
+    .role-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+
+    .role-card__link:hover { gap: 11px; }
+    .role-card__link::after { content: '→'; }
+
+    .role-card__link--disabled {
+      color: rgba(255,255,255,0.25);
+      pointer-events: none;
+    }
+
+    .role-card__link--disabled::after { content: '—'; }
+
+    /* ---- APPLY ---- */
+    .apply {
+      background: var(--navy);
+      padding: clamp(80px, 15vh, 140px) clamp(20px, 6vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .apply::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('../../04-sources/assets/images/events/easter/easter-hands-raised.webp');
+      background-size: cover;
+      background-position: center 40%;
+      opacity: 0.12;
+    }
+
+    .apply__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 580px;
+    }
+
+    .apply__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(38px, 9vw, 76px);
+      line-height: 0.93;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 36px;
+    }
+
+    .apply__headline em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .apply__stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 44px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 17px 22px;
+      font-family: var(--fc);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      gap: 16px;
+    }
+
+    .btn--primary {
+      background: var(--orange);
+      color: var(--navy);
+      transition: background 0.2s;
+    }
+    .btn--primary:hover { background: #e07100; }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.22);
+      transition: border-color 0.2s;
+    }
+    .btn--ghost:hover { border-color: rgba(255,255,255,0.5); }
+
+    .btn--muted {
+      background: transparent;
+      color: rgba(255,255,255,0.28);
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: default;
+    }
+
+    .apply__contact {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .apply__contact a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    .apply__contact a:hover { text-decoration: underline; }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      background: #0c1d2a;
+      padding: 28px clamp(20px, 6vw, 80px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer__id {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer__id span { color: var(--orange); }
+
+    .footer__site {
+      font-family: var(--fc);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__lower-third">
+    <div class="hero__eyebrow">Crossroads · Wonderwall</div>
+    <h1 class="hero__headline">This runs<br>live.<br>Every week.</h1>
+    <p class="hero__sub">Cincinnati, OH &nbsp;·&nbsp; Broadcast-Grade Virtual Production</p>
+  </div>
+</section>
+
+<!-- SCENE REEL -->
+<section id="transformation">
+  <div class="scene-sticky">
+    <div class="scroll-wrapper" id="scrollWrapper">
+
+      <div class="scene-layer active" id="scene-1">
+        <img src="../../04-sources/assets/images/events/christmas/christmas-hero-crowd-forest.webp" alt="" loading="eager" />
+      </div>
+      <div class="scene-layer" id="scene-2">
+        <img src="../../04-sources/assets/images/events/journey/journey-red-sky-arch.webp" alt="" loading="lazy" />
+      </div>
+      <div class="scene-layer" id="scene-3">
+        <video muted loop playsinline preload="none">
+          <source src="../../04-sources/assets/videos/messages/red-sea-part-action.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="scene-layer" id="scene-4">
+        <video muted loop playsinline preload="none">
+          <source src="../../04-sources/assets/videos/messages/lion.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="scene-layer" id="scene-5">
+        <video muted loop playsinline preload="none">
+          <source src="../../04-sources/assets/videos/messages/noah-arc-wide.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="scene-layer" id="scene-6">
+        <video muted loop playsinline preload="none">
+          <source src="../../04-sources/assets/videos/messages/mountain-top.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="scene-layer" id="scene-7">
+        <img src="../../04-sources/assets/images/events/easter/easter-hands-raised.webp" alt="" loading="lazy" />
+      </div>
+
+      <div class="scene-ui">
+        <div class="scene-counter" id="scrollCounter">01 / 07</div>
+        <div class="scene-descriptor" id="sceneDescriptor"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE A -->
+<section class="quote-a">
+  <p class="quote-a__source">Tim Corder &nbsp;·&nbsp; VP Faith &amp; Performance, Diversified</p>
+  <p class="quote-a__text">Nothing like this<br>had ever been done<br>before in front of<br>a live audience<br>in a room anywhere<br>near this size.</p>
+</section>
+
+<!-- QUOTE B -->
+<section class="quote-b">
+  <blockquote>
+    <p class="quote-b__text">"<strong>These systems allow a small weekly crew to run a production comparable to major touring or broadcast events.</strong>"</p>
+    <p class="quote-b__source">Craig Dockery &nbsp;·&nbsp; Creative Director, Crossroads Church</p>
+  </blockquote>
+</section>
+
+<!-- SPEC -->
+<section class="spec">
+  <div class="section-label">Technical Specification</div>
+  <div class="spec__grid">
+    <div>
+      <div class="spec__row">
+        <span class="spec__label">Venue</span>
+        <span class="spec__value">3,400 capacity</span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label">Cameras</span>
+        <span class="spec__value">RED Komodo-X 6K <span class="qty">×8</span></span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label">Media Servers</span>
+        <span class="spec__value">Disguise Gx3+ <span class="qty">×7</span></span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label"></span>
+        <span class="spec__value">Disguise Gx3 <span class="qty">×10</span></span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label"></span>
+        <span class="spec__value">Disguise Rx3 <span class="qty">×12</span></span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label"></span>
+        <span class="spec__value">Silverdraft Demon <span class="qty">×4</span></span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label">LED Surfaces</span>
+        <span class="spec__value">ROE BP v2 · Vanish · BM4</span>
+      </div>
+    </div>
+    <div>
+      <div class="spec__row">
+        <span class="spec__label">Audio</span>
+        <span class="spec__value">L-Acoustics L-ISA</span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label">Mixing</span>
+        <span class="spec__value">DiGiCo SD7 / SD5</span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label">Video Core</span>
+        <span class="spec__value">Ross Ultrix · Acuity</span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label">XR / AR</span>
+        <span class="spec__value">GhostFrame · 3 slices</span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label">Cam Tracking</span>
+        <span class="spec__value">Stype RedSpy 4.0</span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label">Talent Track</span>
+        <span class="spec__value">Stage Precision Grid</span>
+      </div>
+      <div class="spec__row">
+        <span class="spec__label">Creative</span>
+        <span class="spec__value">Unreal · Notch · TouchDesigner</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<section class="logos">
+  <p class="logos__label">Built with</p>
+  <div class="logos__mask">
+    <div class="logos__track">
+      <div class="logos__item"><img src="../../04-sources/assets/logos/disguise.svg" alt="Disguise" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/unreal-engine.svg" alt="Unreal Engine" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/notch.svg" alt="Notch" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/roe.svg" alt="ROE" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/tait.svg" alt="TAIT" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/ross.svg" alt="Ross" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/megapixel.svg" alt="Megapixel" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/digico.svg" alt="DiGiCo" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/stype.svg" alt="Stype" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/l-acoustics.svg" alt="L-Acoustics" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/stage-precision.svg" alt="Stage Precision" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/carbon-for-unreal.svg" alt="Carbon for Unreal" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/visual-endeavors.svg" alt="Visual Endeavors" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/lightborne.svg" alt="Lightborne" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/silent-partners.svg" alt="Silent Partners Studio" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/possible.svg" alt="Possible" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/luz.svg" alt="Luz" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/raw-cereal.svg" alt="Raw Cereal" /></div>
+      <!-- duplicate for seamless loop -->
+      <div class="logos__item"><img src="../../04-sources/assets/logos/disguise.svg" alt="Disguise" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/unreal-engine.svg" alt="Unreal Engine" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/notch.svg" alt="Notch" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/roe.svg" alt="ROE" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/tait.svg" alt="TAIT" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/ross.svg" alt="Ross" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/megapixel.svg" alt="Megapixel" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/digico.svg" alt="DiGiCo" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/stype.svg" alt="Stype" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/l-acoustics.svg" alt="L-Acoustics" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/stage-precision.svg" alt="Stage Precision" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/carbon-for-unreal.svg" alt="Carbon for Unreal" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/visual-endeavors.svg" alt="Visual Endeavors" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/lightborne.svg" alt="Lightborne" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/silent-partners.svg" alt="Silent Partners Studio" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/possible.svg" alt="Possible" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/luz.svg" alt="Luz" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/raw-cereal.svg" alt="Raw Cereal" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles">
+  <div class="section-label">Open Positions</div>
+  <div class="roles__grid">
+
+    <div class="role-card">
+      <div class="role-card__cat">Technology</div>
+      <h3 class="role-card__title">Disguise Programmer</h3>
+      <p class="role-card__desc">Build and operate the real-time render pipeline. Disguise + Unreal Engine + live camera tracking — in front of 3,400 people. No pre-render. No second take.</p>
+      <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings/details/Disguise-Programmer_R-100100"
+         class="role-card__link" target="_blank" rel="noopener">Apply Now</a>
+    </div>
+
+    <div class="role-card">
+      <div class="role-card__cat">Creative Technology</div>
+      <h3 class="role-card__title">Technical Artist <span class="role-card__badge">Coming Soon</span></h3>
+      <p class="role-card__desc">Bridge content and system. Unreal, Notch, or both. You know the difference between what previews well and what survives a live cut.</p>
+      <span class="role-card__link role-card__link--disabled">Posting Soon</span>
+    </div>
+
+    <div class="role-card">
+      <div class="role-card__cat">All Disciplines</div>
+      <h3 class="role-card__title">Creative · Tech · Production</h3>
+      <p class="role-card__desc">The Wonderwall team spans three disciplines. Creative, Production, and Tech roles open as the team scales. Check all current listings.</p>
+      <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings"
+         class="role-card__link" target="_blank" rel="noopener">View All Roles</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="apply">
+  <div class="apply__inner">
+    <div class="section-label">Make the move</div>
+    <h2 class="apply__headline">Your work.<br><em>Live.</em><br>Weekly.</h2>
+    <div class="apply__stack">
+      <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings/details/Disguise-Programmer_R-100100"
+         class="btn btn--primary" target="_blank" rel="noopener">
+        <span>Apply — Disguise Programmer</span>
+        <span>→</span>
+      </a>
+      <div class="btn btn--muted">
+        <span>Technical Artist — Posting Soon</span>
+        <span>—</span>
+      </div>
+      <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings"
+         class="btn btn--ghost" target="_blank" rel="noopener">
+        <span>View All Roles</span>
+        <span>→</span>
+      </a>
+    </div>
+    <p class="apply__contact">
+      Questions about the work or the team?<br>
+      <a href="mailto:wonderwall@crossroads.net">wonderwall@crossroads.net</a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__id"><span>Wonderwall</span> &nbsp;·&nbsp; Crossroads Church &nbsp;·&nbsp; Cincinnati, OH</div>
+  <a href="https://crossroads.net" class="footer__site" target="_blank" rel="noopener">crossroads.net</a>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const SCENES = [
+    { id: 'scene-1', counter: '01 / 07', descriptor: null },
+    { id: 'scene-2', counter: '02 / 07', descriptor: 'Same stage.\nA different world.' },
+    { id: 'scene-3', counter: '03 / 07', descriptor: 'Red Sea.\nReal time. Unreal Engine.' },
+    { id: 'scene-4', counter: '04 / 07', descriptor: "Lion's den.\nBuilt in a day." },
+    { id: 'scene-5', counter: '05 / 07', descriptor: "Noah's Ark.\nTo scale." },
+    { id: 'scene-6', counter: '06 / 07', descriptor: 'A mountaintop.\nInside a room.' },
+    { id: 'scene-7', counter: '07 / 07', descriptor: '3,400 people.\nEvery Sunday.' },
+  ];
+
+  const sceneLayers = document.querySelectorAll('.scene-layer');
+  const scrollWrapper = document.getElementById('scrollWrapper');
+  const scrollCounter = document.getElementById('scrollCounter');
+  const descriptor = document.getElementById('sceneDescriptor');
+
+  let activeIndex = 0;
+  let descriptorTimeout;
+
+  function activateScene(index) {
+    if (index === activeIndex) return;
+    sceneLayers[activeIndex].classList.remove('active');
+    sceneLayers[index].classList.add('active');
+    scrollCounter.textContent = SCENES[index].counter;
+
+    descriptor.classList.remove('visible');
+    clearTimeout(descriptorTimeout);
+
+    const text = SCENES[index].descriptor;
+    if (text) {
+      descriptorTimeout = setTimeout(() => {
+        descriptor.innerHTML = text.replace(/\n/g, '<br>');
+        descriptor.classList.add('visible');
+      }, 100);
+    } else {
+      descriptor.textContent = '';
+    }
+
+    activeIndex = index;
+    const vid = sceneLayers[index].querySelector('video');
+    if (vid) vid.play().catch(() => {});
+  }
+
+  const isMobile = () => window.innerWidth < 768;
+
+  ScrollTrigger.create({
+    trigger: '#transformation',
+    start: 'top top',
+    end: 'bottom bottom',
+    scrub: 0.1,
+    onUpdate(self) {
+      const p = self.progress;
+
+      const sceneFraction = 700 / 750;
+      const sceneProgress = Math.min(p / sceneFraction, 1);
+      const rawIndex = Math.floor(sceneProgress * 7);
+      activateScene(Math.min(rawIndex, 6));
+
+      const expStart = 700 / 750;
+      if (p >= expStart) {
+        const t = (p - expStart) / (50 / 750);
+        const clamp = Math.min(t, 1);
+        const baseW = isMobile() ? 94 : 80;
+        scrollWrapper.style.width = (baseW + clamp * (100 - baseW)) + 'vw';
+        const fadeStart = 0.6;
+        scrollWrapper.style.opacity = clamp > fadeStart
+          ? String(1 - (clamp - fadeStart) / (1 - fadeStart))
+          : '1';
+      } else {
+        scrollWrapper.style.width = isMobile() ? '94vw' : '80vw';
+        scrollWrapper.style.opacity = '1';
+      }
+    }
+  });
+</script>
+</body>
+</html>

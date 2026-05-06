@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hero Concepts — Wonderwall</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #000;
+      font-family: -apple-system, 'Helvetica Neue', sans-serif;
+      overflow: hidden;
+      height: 100dvh;
+    }
+
+    /* TOP BAR */
+    .bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .bar::-webkit-scrollbar { display: none; }
+
+    .bar__label {
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-right: 4px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tab {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.4);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 2px;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.15s;
+    }
+
+    .tab.active {
+      background: rgba(255,130,0,0.16);
+      border-color: #FF8200;
+      color: #FF8200;
+    }
+
+    .tab:hover:not(.active) {
+      background: rgba(255,255,255,0.13);
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* PANELS — full bleed, no gradient, no text */
+    .panel {
+      position: fixed;
+      inset: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.55s ease;
+    }
+
+    .panel.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .panel__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-color: #0a1a28;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bar">
+    <span class="bar__label">Hero concept &mdash;</span>
+    <button class="tab active" onclick="show(0)">A &mdash; Christmas Forest</button>
+    <button class="tab" onclick="show(1)">B &mdash; Easter Overhead</button>
+    <button class="tab" onclick="show(2)">C &mdash; Super Bowl Crowd</button>
+    <button class="tab" onclick="show(3)">D &mdash; Journey Ruins</button>
+    <button class="tab" onclick="show(4)">E &mdash; Christmas Wide</button>
+  </div>
+
+  <div class="panel active" id="p0">
+    <div class="panel__bg" id="bg0" style="background-position: center 20%;"></div>
+  </div>
+  <div class="panel" id="p1">
+    <div class="panel__bg" id="bg1" style="background-position: center;"></div>
+  </div>
+  <div class="panel" id="p2">
+    <div class="panel__bg" id="bg2" style="background-position: center;"></div>
+  </div>
+  <div class="panel" id="p3">
+    <div class="panel__bg" id="bg3" style="background-position: center 30%;"></div>
+  </div>
+  <div class="panel" id="p4">
+    <div class="panel__bg" id="bg4" style="background-position: center;"></div>
+  </div>
+
+  <script>
+    const BASE = '../../04-sources/assets/images/events/';
+
+    const concepts = [
+      {
+        primary:  BASE + 'christmas/christmas-hero-crowd-forest.webp',
+        fallback: BASE + 'christmas/christmas-crowd-wide.webp',
+        el: 'bg0'
+      },
+      {
+        primary:  BASE + 'easter/easter-overhead-mosaic.webp',
+        fallback: BASE + 'easter/easter-overhead-floral.webp',
+        el: 'bg1'
+      },
+      {
+        primary:  BASE + 'super-bowl/super-bowl-crowd-lights.webp',
+        fallback: BASE + 'super-bowl/super-bowl-cathedral-wide.webp',
+        el: 'bg2'
+      },
+      {
+        primary:  BASE + 'journey/journey-ruins-performers.webp',
+        fallback: BASE + 'journey/journey-roman-wide.webp',
+        el: 'bg3'
+      },
+      {
+        primary:  BASE + 'christmas/christmas-crowd-wide.webp',
+        fallback: BASE + 'christmas/christmas-crowd-amber.webp',
+        el: 'bg4'
+      }
+    ];
+
+    function loadWithFallback({ primary, fallback, el }) {
+      const target = document.getElementById(el);
+      const img = new Image();
+      img.onload = () => { target.style.backgroundImage = `url('${primary}')`; };
+      img.onerror = () => {
+        const fb = new Image();
+        fb.onload = () => { target.style.backgroundImage = `url('${fallback}')`; };
+        fb.onerror = () => {};
+        fb.src = fallback;
+      };
+      img.src = primary;
+    }
+
+    concepts.forEach(loadWithFallback);
+
+    function show(idx) {
+      document.querySelectorAll('.panel').forEach((p, i) => p.classList.toggle('active', i === idx));
+      document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', i === idx));
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wonderwall — Crossroads Church</title>
+  <link rel="stylesheet" href="https://use.typekit.net/yax3ayc.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/klz4bgj.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:    #FF8200;
+      --navy:      #102230;
+      --navy-mid:  #1a2f40;
+      --navy-dark: #0a1a28;
+      --white:     #ffffff;
+      --off:       rgba(255,255,255,0.55);
+      --fd: acumin-pro, 'Barlow', sans-serif;
+      --fc: acumin-pro-extracondensed, 'Barlow Condensed', sans-serif;
+      --texture: url('https://crds-media.imgix.net/5keOksLK6PtMmlTnUQQeRT/86d3609bea8e6725c7a0b38a9a5530f3/texture-topo-dark-50_2x.png');
+      --px: clamp(20px, 5vw, 56px);
+      --max: 1280px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--fd);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: var(--texture);
+      background-size: 500px;
+      opacity: 0.12;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── HERO ── */
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100dvh;
+      min-height: 580px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center 25%;
+      background-color: var(--navy-dark);
+      transition: opacity 0.8s ease;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(16,34,48,0.1) 0%,
+        transparent 28%,
+        rgba(16,34,48,0.35) 55%,
+        rgba(16,34,48,0.9) 82%,
+        var(--navy) 100%
+      );
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 10;
+      padding: 0 var(--px) clamp(36px, 7vh, 68px);
+    }
+
+    .hero__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .hero__eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .hero__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(32px, 9vw, 96px);
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.7s 0.5s ease both;
+    }
+
+    .hero__sub {
+      margin-top: clamp(14px, 2.5vh, 22px);
+      font-family: var(--fc);
+      font-size: clamp(14px, 2.5vw, 20px);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--off);
+      opacity: 0;
+      animation: fadeUp 0.7s 0.7s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── QUOTES SECTION ── */
+
+    .quotes {
+      padding: clamp(64px, 10vh, 100px) 0;
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255,130,0,0.2);
+    }
+
+    .quotes__inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .quote-item {
+      padding: clamp(32px, 5vw, 52px) 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .quote-item:first-child { padding-top: 0; }
+    .quote-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    @media (min-width: 768px) {
+      .quote-item { grid-template-columns: 200px 1fr; gap: 48px; align-items: center; }
+    }
+
+    .quote-item__attr {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      line-height: 1.6;
+    }
+
+    .quote-item__text {
+      font-family: var(--fd);
+      font-weight: 700;
+      font-size: clamp(18px, 3.5vw, 30px);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+
+    /* ── REEL ── */
+
+    .reel {
+      padding: clamp(48px, 8vh, 80px) 0 0;
+    }
+
+    .reel__header {
+      padding: 0 var(--px) clamp(24px, 4vh, 36px);
+    }
+
+    .reel__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(22px, 4.5vw, 38px);
+      line-height: 1;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .reel__sub {
+      font-size: clamp(13px, 1.8vw, 15px);
+      color: rgba(255,255,255,0.32);
+      line-height: 1.5;
+    }
+
+    .reel__strip {
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: clamp(40px, 6vh, 64px);
+    }
+
+    .reel__strip::-webkit-scrollbar { display: none; }
+
+    .reel__item {
+      position: relative;
+      flex-shrink: 0;
+      width: clamp(180px, 38vw, 280px);
+      height: clamp(260px, 55vw, 420px);
+      overflow: hidden;
+      cursor: default;
+    }
+
+    .reel__item__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--navy-mid);
+    }
+
+    .reel__item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(16,34,48,0.82) 0%, transparent 50%);
+    }
+
+    .reel__item__label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: clamp(10px, 2vw, 16px);
+    }
+
+    .reel__item__event {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(13px, 2.4vw, 18px);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .reel__item__sub {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-top: 3px;
+    }
+
+    /* ── WHAT IT IS ── */
+
+    .what {
+      padding: clamp(64px, 10vh, 96px) 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .what__inner {
+      max-width: 860px;
+    }
+
+    .what__body {
+      font-size: clamp(17px, 2.6vw, 22px);
+      line-height: 1.62;
+      color: var(--off);
+      margin-bottom: 0;
+    }
+
+    .what__body strong { color: var(--white); font-weight: 600; }
+
+    /* ── TECH STACK ── */
+
+    .stack {
+      padding: clamp(64px, 10vh, 100px) 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .stack__header { margin-bottom: clamp(36px, 5vw, 52px); }
+
+    .stack__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .stack__sub {
+      font-size: clamp(14px, 2vw, 16px);
+      color: var(--off);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .stack__group { margin-bottom: clamp(28px, 4vw, 44px); }
+
+    .stack__group-label {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 2px;
+    }
+
+    .stack__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-top: 2px;
+    }
+
+    @media (min-width: 600px) { .stack__grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .stack__grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .stack__item {
+      background: var(--navy-mid);
+      padding: clamp(18px, 3vw, 26px);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stack__item__name {
+      font-family: var(--fd);
+      font-weight: 700;
+      font-size: clamp(15px, 2.2vw, 17px);
+    }
+
+    .stack__item__detail {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.36);
+      line-height: 1.55;
+    }
+
+    /* ── WORLD FIRST ── */
+
+    .worldfirst {
+      padding: clamp(72px, 11vh, 110px) 0;
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .worldfirst__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(36px, 6vw, 64px);
+    }
+
+    @media (min-width: 768px) {
+      .worldfirst__inner { grid-template-columns: 1fr 1fr; align-items: center; }
+    }
+
+    .worldfirst__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid rgba(255,130,0,0.35);
+      padding: 6px 12px;
+      margin-bottom: 24px;
+    }
+
+    .worldfirst__statement {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(24px, 5vw, 48px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .worldfirst__desc {
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height: 1.65;
+      color: var(--off);
+      margin-bottom: 20px;
+    }
+
+    .worldfirst__desc strong { color: var(--white); font-weight: 600; }
+
+    .worldfirst__quote {
+      border-left: 2px solid var(--orange);
+      padding-left: 16px;
+      font-size: clamp(14px, 1.9vw, 16px);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.68);
+      font-style: italic;
+    }
+
+    .worldfirst__attr {
+      margin-top: 8px;
+      font-family: var(--fc);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      font-style: normal;
+    }
+
+    /* ── MISSION ── */
+
+    .mission {
+      position: relative;
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .mission__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center 40%;
+      background-color: var(--navy-dark);
+    }
+
+    .mission__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(16,34,48,0.82) 0%,
+        rgba(16,34,48,0.52) 55%,
+        rgba(16,34,48,0.7) 100%
+      );
+    }
+
+    .mission__content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      padding: clamp(64px, 10vh, 96px) var(--px);
+    }
+
+    .mission__label {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .mission__label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--orange);
+    }
+
+    .mission__quote {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(22px, 4.5vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+      margin-bottom: 20px;
+    }
+
+    .mission__attr {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 48px;
+    }
+
+    .mission__rule {
+      width: 48px;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+      margin-bottom: 28px;
+    }
+
+    .mission__tag {
+      font-family: var(--fc);
+      font-size: clamp(18px, 3.5vw, 28px);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.62);
+    }
+
+    /* ── ROLES ── */
+
+    .roles {
+      padding: clamp(64px, 10vh, 100px) 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .roles__header { margin-bottom: clamp(36px, 5vw, 56px); }
+
+    .roles__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(28px, 6vw, 54px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .roles__cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+
+    @media (min-width: 640px) { .roles__cards { grid-template-columns: 1fr 1fr; } }
+
+    .role-card {
+      background: var(--navy-mid);
+      padding: clamp(28px, 4vw, 40px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .role-card--coming { opacity: 0.65; }
+
+    .role-card__badge {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .role-card--coming .role-card__badge { color: rgba(255,255,255,0.28); }
+
+    .role-card__title {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(22px, 4vw, 32px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+
+    .role-card__desc {
+      font-size: clamp(14px, 1.8vw, 15px);
+      line-height: 1.62;
+      color: var(--off);
+      flex-grow: 1;
+    }
+
+    /* ── BUTTONS ── */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 22px;
+      background: var(--orange);
+      color: var(--navy);
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+      align-self: flex-start;
+    }
+
+    .btn:hover { background: #ff9422; transform: translateY(-1px); }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn--ghost:hover { background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+
+    .btn--dim {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.32);
+      cursor: default;
+    }
+
+    .btn--dim:hover { background: rgba(255,255,255,0.08); transform: none; }
+
+    /* ── APPLY ── */
+
+    .apply {
+      padding: clamp(64px, 10vh, 96px) 0;
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255,130,0,0.2);
+    }
+
+    .apply__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(40px, 6vw, 64px);
+      align-items: center;
+    }
+
+    @media (min-width: 768px) { .apply__inner { grid-template-columns: 1fr 1fr; } }
+
+    .apply__quote {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(20px, 3.5vw, 32px);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 12px;
+    }
+
+    .apply__attr {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .apply__cta {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .apply__cta-label {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+
+    .apply__email {
+      font-size: clamp(13px, 1.8vw, 15px);
+      color: rgba(255,255,255,0.36);
+    }
+
+    .apply__email a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+      transition: color 0.15s;
+    }
+
+    .apply__email a:hover { color: var(--white); }
+
+    /* ── LOGO STRIP (bottom) ── */
+
+    .logo-strip {
+      padding: clamp(36px, 5vw, 52px) var(--px);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .logo-strip::-webkit-scrollbar { display: none; }
+
+    .logo-strip__label {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+      margin-bottom: 18px;
+    }
+
+    .logo-strip__row {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 3.5vw, 40px);
+      flex-wrap: wrap;
+    }
+
+    .logo-strip__item {
+      height: 18px;
+      opacity: 0.22;
+      filter: brightness(0) invert(1);
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+
+    footer {
+      padding: 24px var(--px);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    footer .logo {
+      height: 22px;
+      opacity: 0.4;
+      filter: brightness(0) invert(1);
+    }
+
+    footer .foot-note {
+      font-family: var(--fc);
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+    }
+
+    /* ── SHARED ── */
+
+    section { width: 100%; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+
+    .label {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: var(--orange);
+    }
+
+    /* ── SCROLL REVEAL ── */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__bg" id="heroBg"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Crossroads Church &mdash; Cincinnati, OH</p>
+      <h1 class="hero__headline">Help us build it.</h1>
+      <p class="hero__sub">3,400 live. A different stage every week.</p>
+    </div>
+  </section>
+
+  <!-- QUOTES -->
+  <section class="quotes">
+    <div class="wrap">
+      <div class="quotes__inner">
+
+        <div class="quote-item reveal">
+          <p class="quote-item__attr">Ben Nicholson<br>Technical Consultant</p>
+          <p class="quote-item__text">"We went well beyond traditional church production references and started looking at live entertainment, Broadway, and virtual production."</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REEL -->
+  <section class="reel">
+    <div class="reel__header wrap">
+      <div class="reveal">
+        <h2 class="reel__headline">The stage resets every week.</h2>
+        <p class="reel__sub">These are some highlights.</p>
+      </div>
+    </div>
+    <div class="reel__strip">
+      <div class="reel__item reveal">
+        <div class="reel__item__bg" id="reel0"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Christmas</p>
+          <p class="reel__item__sub">2025</p>
+        </div>
+      </div>
+      <div class="reel__item reveal" style="transition-delay:0.06s">
+        <div class="reel__item__bg" id="reel1"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Super Bowl</p>
+          <p class="reel__item__sub">Watch Party</p>
+        </div>
+      </div>
+      <div class="reel__item reveal" style="transition-delay:0.12s">
+        <div class="reel__item__bg" id="reel2"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Journey</p>
+          <p class="reel__item__sub">Series 2025</p>
+        </div>
+      </div>
+      <div class="reel__item reveal" style="transition-delay:0.18s">
+        <div class="reel__item__bg" id="reel3"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Easter</p>
+          <p class="reel__item__sub">2025</p>
+        </div>
+      </div>
+      <div class="reel__item reveal" style="transition-delay:0.24s">
+        <div class="reel__item__bg" id="reel4"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Worship</p>
+          <p class="reel__item__sub">Live Production</p>
+        </div>
+      </div>
+      <div class="reel__item reveal" style="transition-delay:0.3s">
+        <div class="reel__item__bg" id="reel5"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Message</p>
+          <p class="reel__item__sub">Live Environment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT IS -->
+  <section class="what">
+    <div class="wrap">
+      <div class="what__inner reveal">
+        <p class="label">What this is</p>
+        <p class="what__body">
+          The Wonderwall is <strong>nine independent LED surfaces</strong> &mdash; four that physically move and reconfigure mid-service. It runs <strong>Unreal Engine environments live</strong>, no pre-renders, in front of 3,400 people. GhostFrame embeds separate signals into the LED refresh cycle so what cameras see is different from what the room sees, simultaneously. The same crew resets it for a completely different production every week.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="stack">
+    <div class="wrap">
+      <div class="stack__header reveal">
+        <p class="label">The Stack</p>
+        <h2 class="stack__headline">What's running<br>every week</h2>
+        <p class="stack__sub">Real-time. Live. In front of an audience.</p>
+      </div>
+
+      <div class="stack__group reveal">
+        <p class="stack__group-label">Rendering</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">Unreal Engine</p>
+            <p class="stack__item__detail">Real-time via RenderStream &middot; Live navigable 3D &middot; No pre-renders</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">Disguise</p>
+            <p class="stack__item__detail">Gx3+ (7x) &middot; Gx3 (10x) &middot; Rx3 render nodes (12x) &middot; Silverdraft (4x)</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">Notch</p>
+            <p class="stack__item__detail">Real-time effects &middot; Composited with UE environments and live feeds</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack__group reveal" style="transition-delay:0.06s">
+        <p class="stack__group-label">Display</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">ROE LED &mdash; 9 Surfaces</p>
+            <p class="stack__item__detail">BP2v2 (4 automated moving + 2 static legs) &middot; BM4 floor &middot; Jasper 2.6 &middot; Vanish upstage wall</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">Megapixel HELIOS</p>
+            <p class="stack__item__detail">LED processing &middot; GhostFrame VR integration</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack__group reveal" style="transition-delay:0.12s">
+        <p class="stack__group-label">Camera &amp; Tracking</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">8x RED KOMODO-X</p>
+            <p class="stack__item__detail">Integrated with GhostFrame &middot; Stype tracking for XR frustums</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">Stage Precision</p>
+            <p class="stack__item__detail">Calibration + spatial alignment</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">TiMax</p>
+            <p class="stack__item__detail">Talent tracking</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack__group reveal" style="transition-delay:0.18s">
+        <p class="stack__group-label">Signal &amp; Automation</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">Ross Video Ultrix FR12</p>
+            <p class="stack__item__detail">4K routing &middot; 12 Gbps pipeline &middot; 4 Acuity SPDE cards</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">TAIT Automation</p>
+            <p class="stack__item__detail">LED wall rigging &middot; Automated movement mid-service</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack__group reveal" style="transition-delay:0.24s">
+        <p class="stack__group-label">Audio</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">L-Acoustics L-ISA</p>
+            <p class="stack__item__detail">Immersive audio system</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">DiGiCo Quantum7</p>
+            <p class="stack__item__detail">FOH console</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">DiGiCo Quantum5</p>
+            <p class="stack__item__detail">Monitor console</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WORLD FIRST -->
+  <section class="worldfirst">
+    <div class="wrap">
+      <div class="worldfirst__inner">
+        <div class="reveal">
+          <p class="worldfirst__badge">World First &mdash; 2025</p>
+          <h2 class="worldfirst__statement">In-person and broadcast audiences see two different versions of the same stage. At the same time.</h2>
+        </div>
+        <div class="reveal" style="transition-delay:0.12s">
+          <p class="worldfirst__desc">
+            <strong>GhostFrame</strong> embeds multiple video signals into the LED refresh cycle simultaneously. In-person attendees see one environment. Broadcast cameras capture something else entirely from the same surface &mdash; no switching, no tricks, both live at once, in front of 3,400 people.
+          </p>
+          <blockquote class="worldfirst__quote">
+            "The implementation at Crossroads Oakley marks the largest known use of GhostFrame technology in a live venue with an in-person audience."
+            <cite class="worldfirst__attr">Scott Lau &mdash; Technical Project Manager, Disguise</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission">
+    <div class="mission__bg" id="missionBg"></div>
+    <div class="mission__overlay"></div>
+    <div class="mission__content">
+      <p class="mission__label reveal">The mission</p>
+      <blockquote class="mission__quote reveal">
+        "If someone's going to go to a concert and see something that blows their mind or they're going to go to a Broadway show&hellip; why wouldn't we use that same technology to present the Gospel?"
+      </blockquote>
+      <p class="mission__attr reveal">Craig Dockery &mdash; Creative Director, Crossroads Church</p>
+      <div class="mission__rule reveal"></div>
+      <p class="mission__tag reveal">The greatest story demands the greatest storytelling tools.</p>
+    </div>
+  </section>
+
+  <!-- ROLES -->
+  <section class="roles">
+    <div class="wrap">
+      <div class="roles__header">
+        <p class="label reveal">Work here</p>
+        <h2 class="roles__headline reveal">A small crew.<br>Major touring scale.</h2>
+      </div>
+      <div class="roles__cards">
+        <div class="role-card reveal">
+          <p class="role-card__badge">Now Hiring</p>
+          <h3 class="role-card__title">Disguise Programmer</h3>
+          <p class="role-card__desc">Own the Disguise signal chain: server configuration, RenderStream routing, GhostFrame integration, and show stability across 29 media servers and 9 LED surfaces. Running live production, every week.</p>
+          <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings/details/Disguise-Programmer_R-100100" class="btn" target="_blank" rel="noopener">Apply Now</a>
+        </div>
+        <div class="role-card role-card--coming reveal" style="transition-delay:0.1s">
+          <p class="role-card__badge">Coming Soon</p>
+          <h3 class="role-card__title">Technical Artist</h3>
+          <p class="role-card__desc">Build and iterate real-time Unreal Engine environments for live services and broadcast. Lighting, shaders, materials, world-building inside scenes that run in front of thousands every week.</p>
+          <span class="btn btn--dim" aria-disabled="true">Posting Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY -->
+  <section class="apply">
+    <div class="wrap">
+      <div class="apply__inner">
+        <div class="reveal">
+          <blockquote class="apply__quote">
+            "Crossroads' stage represents not only a technical achievement but also proof that immersive technology and storytelling excellence don't have to be limited to the entertainment industry."
+          </blockquote>
+          <p class="apply__attr">Disguise Case Study &mdash; December 2025</p>
+        </div>
+        <div class="apply__cta reveal" style="transition-delay:0.1s">
+          <p class="apply__cta-label">Get in touch</p>
+          <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings" class="btn" target="_blank" rel="noopener">View All Openings</a>
+          <a href="mailto:wonderwall@crossroads.net" class="btn btn--ghost">wonderwall@crossroads.net</a>
+          <p class="apply__email">Questions about a specific role? Email directly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS -->
+  <div class="logo-strip">
+    <p class="logo-strip__label">Tools &amp; Partners</p>
+    <div class="logo-strip__row">
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/unreal-engine.svg" alt="Unreal Engine" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/disguise.svg" alt="Disguise" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/notch.svg" alt="Notch" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/roe.svg" alt="ROE Visual" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/megapixel.svg" alt="Megapixel" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/ross.svg" alt="Ross Video" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/tait.svg" alt="TAIT" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/l-acoustics.svg" alt="L-Acoustics" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/digico.svg" alt="DiGiCo" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/stype.svg" alt="Stype" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/stage-precision.svg" alt="Stage Precision" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/carbon-for-unreal.svg" alt="Carbon for Unreal" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/lightborne.svg" alt="Lightborne" />
+      <img class="logo-strip__item" src="../../04-sources/assets/logos/visual-endeavors.svg" alt="Visual Endeavors" />
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <img class="logo" src="https://crds-media.imgix.net/2vFkXsRRuFHQRVU3R4qSLV/2ef36ef7cd5e5c95d4bce5e82448dd5e/Crossroads-Logo-Horizontal-White.svg" alt="Crossroads Church" />
+    <p class="foot-note">Crossroads Church &mdash; Cincinnati, OH &mdash; Wonderwall</p>
+  </footer>
+
+  <script>
+    const IMG = '../../04-sources/assets/images/';
+
+    // ── Hero cycling images
+    const heroImages = [
+      IMG + 'events/christmas/christmas-hero-crowd-forest.webp',
+      IMG + 'events/easter/easter-saturday-singer-sun.webp',
+      IMG + 'events/journey/journey-ruins-band.webp',
+      IMG + 'events/super-bowl/super-bowl-crowd-lights.webp',
+    ];
+
+    const heroBg = document.getElementById('heroBg');
+    let heroIdx = 0;
+
+    // Load first image immediately
+    heroBg.style.backgroundImage = `url('${heroImages[0]}')`;
+
+    // Preload all cycling images
+    heroImages.forEach(src => { const i = new Image(); i.src = src; });
+
+    // Cycle with crossfade
+    function nextHero() {
+      heroBg.style.opacity = '0';
+      setTimeout(() => {
+        heroIdx = (heroIdx + 1) % heroImages.length;
+        heroBg.style.backgroundImage = `url('${heroImages[heroIdx]}')`;
+        heroBg.style.opacity = '1';
+      }, 800);
+    }
+
+    setTimeout(() => { setInterval(nextHero, 4500); }, 4500);
+
+    // ── Image fallback utility
+    function loadBg(el, primary, fallback) {
+      const img = new Image();
+      const set = src => { el.style.backgroundImage = `url('${src}')`; };
+      img.onload  = () => set(primary);
+      img.onerror = () => {
+        const fb = new Image();
+        fb.onload  = () => set(fallback);
+        fb.onerror = () => {};
+        fb.src = fallback;
+      };
+      img.src = primary;
+    }
+
+    // Reel
+    loadBg(document.getElementById('reel0'),
+      IMG + 'events/christmas/christmas-crowd-amber.webp',
+      IMG + 'events/christmas/christmas-crowd-wide.webp');
+
+    loadBg(document.getElementById('reel1'),
+      IMG + 'events/super-bowl/super-bowl-pixels-crowd.webp',
+      IMG + 'events/super-bowl/super-bowl-crowd-lights.webp');
+
+    loadBg(document.getElementById('reel2'),
+      IMG + 'events/journey/journey-red-sky-arch.webp',
+      IMG + 'events/journey/journey-roman-wide.webp');
+
+    loadBg(document.getElementById('reel3'),
+      IMG + 'events/easter/easter-overhead-mosaic.webp',
+      IMG + 'events/easter/easter-overhead-floral.webp');
+
+    loadBg(document.getElementById('reel4'),
+      IMG + 'music/count-me-in-2.webp',
+      IMG + 'music/count-me-in-1.webp');
+
+    loadBg(document.getElementById('reel5'),
+      IMG + 'music/text-2.webp',
+      IMG + 'music/text-1.webp');
+
+    // Mission
+    loadBg(document.getElementById('missionBg'),
+      IMG + 'events/super-bowl/super-bowl-cathedral-dark.webp',
+      IMG + 'events/easter/easter-hands-raised.webp');
+
+    // ── Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>

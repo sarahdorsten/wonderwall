@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concept Compare — Wonderwall</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --line: rgba(0,0,0,0.1);
+      --dim:  rgba(0,0,0,0.35);
+      --hi:   rgba(0,0,0,0.85);
+      --bar-h: 46px;
+      --fc: 'Barlow Condensed', sans-serif;
+      --fd: 'Barlow', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background: #fff;
+      color: rgba(0,0,0,0.6);
+      font-family: var(--fd);
+    }
+
+    /* ── TOP BAR ── */
+
+    .bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--bar-h);
+      z-index: 9000;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      padding: 0 18px;
+      gap: 0;
+    }
+
+    .bar__title {
+      font-family: var(--fc);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--hi);
+      margin-right: 20px;
+      white-space: nowrap;
+    }
+
+    .bar__assets-label {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-right: 8px;
+      white-space: nowrap;
+      border-left: 1px solid var(--line);
+      padding-left: 18px;
+    }
+
+    .asset-tabs {
+      display: flex;
+      align-items: stretch;
+      gap: 2px;
+      margin-right: 18px;
+    }
+
+    .asset-tab {
+      background: none;
+      border: 1px solid var(--line);
+      color: rgba(0,0,0,0.35);
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+    }
+
+    .asset-tab:hover { background: rgba(0,0,0,0.04); color: rgba(0,0,0,0.65); }
+    .asset-tab.active { background: rgba(0,0,0,0.08); color: var(--hi); border-color: rgba(0,0,0,0.2); }
+
+    .bar__diff-btn {
+      margin-left: auto;
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--dim);
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 5px 13px;
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+    }
+
+    .bar__diff-btn:hover { background: rgba(0,0,0,0.04); color: var(--hi); }
+
+    /* ── SPLIT ── */
+
+    .split {
+      position: fixed;
+      top: var(--bar-h);
+      left: 0; right: 0; bottom: 0;
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      transition: right 0.25s ease;
+    }
+
+    .divider { background: var(--line); }
+
+    /* ── COLUMN ── */
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-width: 0;
+    }
+
+    .col__head {
+      flex-shrink: 0;
+      padding: 8px 14px;
+      background: #f5f5f5;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .col__name {
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--hi);
+      white-space: nowrap;
+    }
+
+    .col__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: flex-end;
+    }
+
+    .tag {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border: 1px solid rgba(0,0,0,0.12);
+      color: rgba(0,0,0,0.38);
+      white-space: nowrap;
+    }
+
+    /* ── IFRAME ── */
+
+    .col__frame {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .col__frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: none;
+      display: block;
+      transform-origin: top left;
+    }
+
+    /* ── DIFF PANEL ── */
+
+    .diff {
+      position: fixed;
+      top: var(--bar-h);
+      right: 0;
+      width: 420px;
+      bottom: 0;
+      background: #fff;
+      border-left: 1px solid var(--line);
+      z-index: 8000;
+      overflow-y: auto;
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      padding: 18px 16px;
+    }
+
+    .diff.open { transform: translateX(0); }
+
+    .diff h3 {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .diff-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+    }
+
+    .diff-table th {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dim);
+      padding: 5px 6px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .diff-table td {
+      padding: 6px 6px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      color: rgba(0,0,0,0.8);
+      line-height: 1.5;
+    }
+
+    .diff-table td:first-child {
+      color: rgba(0,0,0,0.6);
+      font-size: 9.5px;
+      width: 28%;
+      padding-right: 8px;
+    }
+
+    .diff-table .key-diff td   { color: rgba(0,0,0,0.85); }
+    .diff-table .key-diff td:first-child { color: rgba(0,0,0,0.6); }
+
+    .yes   { color: rgba(0,0,0,0.85); }
+    .no    { color: rgba(0,0,0,0.22); }
+    .close { color: rgba(0,0,0,0.85); }
+    .both  { color: rgba(0,0,0,0.85); font-style: italic; }
+
+    .diff-section {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.22);
+      padding: 12px 6px 4px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="bar">
+    <span class="bar__assets-label">Hero + project assets:</span>
+    <div class="asset-tabs">
+      <button class="asset-tab active" data-asset="a">A. All Motion</button>
+      <button class="asset-tab" data-asset="b">B. Motion + Stills</button>
+      <button class="asset-tab" data-asset="c">C. Events</button>
+    </div>
+    <button class="bar__diff-btn" id="diffBtn">Diff &#8595;</button>
+  </div>
+
+  <!-- SPLIT VIEW -->
+  <div class="split" id="split">
+
+    <div class="col">
+      <div class="col__frame">
+        <iframe id="frameA" src="./concept-i/index.html?compare=1" scrolling="yes"></iframe>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="col">
+      <div class="col__frame">
+        <iframe id="frameB" src="./concept-j/index.html?compare=1" scrolling="yes"></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- DIFF PANEL -->
+  <div class="diff" id="diffPanel">
+    <h3>Client pref</h3>
+    <table class="diff-table">
+      <thead>
+        <tr><th>Brief / Client ask</th><th>Source</th><th>1</th><th>2</th></tr>
+      </thead>
+      <tbody>
+
+<tr><td>1. Wonderwall image / hero</td><td>Client Q&amp;A</td><td><span class="yes">&#10003; Pos. 1 — video reel</span></td><td><span class="yes">&#10003; Pos. 1 — video reel</span></td></tr>
+        <tr><td>2. Video (standalone)</td><td>Client Q&amp;A</td><td><span class="no">&#10007; No standalone section</span></td><td><span class="no">&#10007; No standalone section</span></td></tr>
+        <tr><td>3. Who we are</td><td>Client Q&amp;A</td><td><span class="close">~ Pos. 2 — "What this is"</span></td><td><span class="close">~ Pos. 4 — "What"</span></td></tr>
+        <tr><td>4. Tech specs</td><td>Client Q&amp;A</td><td><span class="yes">&#10003; Pos. 4 — The Stack</span></td><td><span class="close">~ Pos. 5 — Stack</span></td></tr>
+        <tr><td>5. Logos</td><td>Client Q&amp;A</td><td><span class="close">~ Pos. 6 — after stack</span></td><td><span class="no">&#10007; After Apply</span></td></tr>
+        <tr><td>6. Testimonials</td><td>Client Q&amp;A</td><td><span class="no">&#10007; Distributed throughout</span></td><td><span class="close">~ Pos. 2 proof; rest distributed</span></td></tr>
+        <tr><td>7. Projects</td><td>Client Q&amp;A</td><td><span class="no">&#10007; Pos. 3 — scroll reel, pulled early (D29)</span></td><td><span class="no">&#10007; Pos. 3 — carousel, pulled early (D29)</span></td></tr>
+        <tr><td>8. Jobs</td><td>Client Q&amp;A</td><td><span class="yes">&#10003; End — matches</span></td><td><span class="yes">&#10003; End — matches</span></td></tr>
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const frameA  = document.getElementById('frameA');
+    const frameB  = document.getElementById('frameB');
+    const diffBtn = document.getElementById('diffBtn');
+    const panel   = document.getElementById('diffPanel');
+    const split   = document.getElementById('split');
+
+    /* ── Tablet scaling: render each iframe at 768px wide, scale to fit column ── */
+
+    const TABLET_W = 768;
+
+    function scaleFrames() {
+      [frameA, frameB].forEach(iframe => {
+        const colW = iframe.parentElement.offsetWidth;
+        const scale = colW / TABLET_W;
+        iframe.style.width  = TABLET_W + 'px';
+        iframe.style.height = (iframe.parentElement.offsetHeight / scale) + 'px';
+        iframe.style.transform = `scale(${scale})`;
+      });
+    }
+
+    scaleFrames();
+    window.addEventListener('resize', scaleFrames);
+
+    /* ── Asset switcher ── */
+
+    function switchAsset(key) {
+      [frameA, frameB].forEach(iframe => {
+        iframe.contentWindow.postMessage({ type: 'setAsset', key }, '*');
+      });
+    }
+
+    document.querySelectorAll('.asset-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.asset-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        switchAsset(btn.dataset.asset);
+      });
+    });
+
+    /* ── Rescale after frames load ── */
+
+    [frameA, frameB].forEach(f => {
+      f.addEventListener('load', scaleFrames);
+    });
+
+    /* ── Diff panel ── */
+
+    diffBtn.addEventListener('click', () => {
+      const open = panel.classList.toggle('open');
+      diffBtn.textContent = open ? 'Close ↑' : 'Diff ↓';
+      split.style.right = open ? '420px' : '0';
+      setTimeout(scaleFrames, 260);
+    });
+  </script>
+
+</body>
+</html>

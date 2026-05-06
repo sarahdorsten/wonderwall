@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wonderwall — Crossroads Church</title>
+  <link rel="stylesheet" href="https://use.typekit.net/yax3ayc.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/klz4bgj.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet" />
+  <script>
+  if (location.search.includes('compare')) {
+    var s = document.createElement('style');
+    s.textContent = `*{text-transform:none!important;letter-spacing:normal!important}.cnav{display:none!important}.label::before{display:none!important}.hero__scene-label{display:none!important}:root{--nav-h:0px!important;--orange:rgba(0,0,0,0.5)!important;--navy:#f0f0f0!important;--navy-mid:#e8e8e8!important;--navy-dark:#ffffff!important;--white:#111111!important;--off:rgba(0,0,0,0.55)!important}body{background:#f5f5f5!important}body::before{display:none!important}.hero__headline{color:#fff!important}.hero__eyebrow{color:rgba(255,255,255,0.82)!important}.hero__sub{color:rgba(255,255,255,0.82)!important}.logo-strip__item{filter:brightness(0)!important;opacity:0.22!important}.worldfirst__badge{border-color:rgba(0,0,0,0.15)!important}.btn{background:rgba(0,0,0,0.82)!important;color:#fff!important}.btn--ghost{background:transparent!important;color:rgba(0,0,0,0.55)!important;border-color:rgba(0,0,0,0.18)!important}.btn--dim{background:rgba(0,0,0,0.06)!important;color:rgba(0,0,0,0.28)!important}.apply::before{display:none!important}.proof__text{color:rgba(0,0,0,0.85)!important}.proof__attr{color:rgba(0,0,0,0.5)!important}.reel__headline{color:rgba(0,0,0,0.85)!important}.reel__sub{color:rgba(0,0,0,0.45)!important}.reel__item__event{color:#fff!important}.reel__item__sub{color:#fff!important}.stack__headline{color:rgba(0,0,0,0.85)!important}.stack__sub{color:rgba(0,0,0,0.55)!important}.stack__group-label{color:rgba(0,0,0,0.55)!important;border-bottom-color:rgba(0,0,0,0.1)!important}.stack__item__name{color:rgba(0,0,0,0.85)!important}.stack__item__detail{color:rgba(0,0,0,0.5)!important}.stack__item__detail strong{color:rgba(0,0,0,0.78)!important}.worldfirst__statement{color:rgba(0,0,0,0.85)!important}.worldfirst__desc{color:rgba(0,0,0,0.6)!important}.worldfirst__quote{color:rgba(0,0,0,0.62)!important}.worldfirst__attr{color:rgba(0,0,0,0.38)!important}.cadence__headline{color:rgba(0,0,0,0.85)!important}.cadence__para{color:rgba(0,0,0,0.6)!important}.cadence__para strong{color:rgba(0,0,0,0.82)!important}.cadence__nicholson__text{color:rgba(0,0,0,0.65)!important}.cadence__nicholson__attr{color:rgba(0,0,0,0.38)!important}.roles__headline{color:rgba(0,0,0,0.85)!important}.role-card__title{color:rgba(0,0,0,0.85)!important}.role-card__desc{color:rgba(0,0,0,0.52)!important}.apply__contact{color:rgba(0,0,0,0.45)!important}.apply__body{color:rgba(0,0,0,0.55)!important}.logo-strip{background:#fff!important}.logo-strip__label{color:rgba(0,0,0,0.32)!important}.foot-note{color:rgba(0,0,0,0.4)!important}.hero::after{background:linear-gradient(180deg,rgba(0,0,0,0.1) 0%,transparent 28%,rgba(0,0,0,0.35) 55%,rgba(0,0,0,0.88) 82%,#000 100%)!important}`;
+    document.head.appendChild(s);
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:    #FF8200;
+      --navy:      #102230;
+      --navy-mid:  #1a2f40;
+      --navy-dark: #0a1a28;
+      --white:     #ffffff;
+      --off:       rgba(255,255,255,0.55);
+      --fd: acumin-pro, 'Barlow', sans-serif;
+      --fc: acumin-pro-extracondensed, 'Barlow Condensed', sans-serif;
+      --texture: url('https://crds-media.imgix.net/5keOksLK6PtMmlTnUQQeRT/86d3609bea8e6725c7a0b38a9a5530f3/texture-topo-dark-50_2x.png');
+      --px: clamp(20px, 5vw, 56px);
+      --max: 1280px;
+      --nav-h: 44px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--fd);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: var(--texture);
+      background-size: 500px;
+      opacity: 0.12;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── NAV ── */
+
+    .cnav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 9000;
+      background: rgba(5,12,19,0.92);
+      border-bottom: 1px solid rgba(255,130,0,0.2);
+      display: flex;
+      align-items: stretch;
+      padding: 0 20px;
+      gap: 2px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .cnav__tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: rgba(255,255,255,0.3);
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    .cnav__tab .tab-name { display: inline; }
+    .cnav__tab:hover { color: rgba(255,255,255,0.6); }
+    .cnav__tab.active { color: var(--orange); border-bottom-color: var(--orange); }
+
+    /* ── HERO ── */
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80dvh;
+      min-height: 480px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: var(--nav-h);
+    }
+
+    .hero__reel {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero__clip {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+    }
+
+    .hero__clip.active { opacity: 1; }
+
+    .hero__clip img,
+    .hero__clip video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      display: block;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(16,34,48,0.1) 0%,
+        transparent 28%,
+        rgba(16,34,48,0.35) 55%,
+        rgba(16,34,48,0.9) 82%,
+        var(--navy) 100%
+      );
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 10;
+      padding: 0 var(--px) clamp(36px, 7vh, 68px);
+    }
+
+    .hero__eyebrow {
+      display: flex;
+      font-family: var(--fc);
+      font-size: clamp(16px, 3vw, 22px);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .hero__eyebrow::before { display: none; }
+
+    .hero__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(32px, 9vw, 96px);
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.7s 0.5s ease both;
+    }
+
+    .hero__sub {
+      margin-top: clamp(14px, 2.5vh, 22px);
+      font-family: var(--fc);
+      font-size: clamp(14px, 2.5vw, 20px);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+      opacity: 0;
+      animation: fadeUp 0.7s 0.7s ease both;
+    }
+
+    /* Scene label — bottom right */
+    .hero__scene-label {
+      position: absolute;
+      bottom: clamp(36px, 7vh, 68px);
+      right: var(--px);
+      z-index: 10;
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
+      text-align: right;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.22s ease;
+    }
+
+    .hero__scene-label::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+      box-shadow: 0 0 7px var(--orange);
+      animation: livePulse 2s ease-in-out infinite;
+    }
+
+    .hero__scene-label.fade { opacity: 0; }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.25; }
+    }
+
+    /* Progress bar */
+    .hero__progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(255,255,255,0.07);
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    .hero__progress-bar {
+      height: 100%;
+      background: var(--orange);
+      width: 0%;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── PROOF (Tim Corder) ── */
+
+    .proof {
+      padding: clamp(72px, 13vh, 130px) var(--px) clamp(48px, 8vh, 72px);
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255,130,0,0.12);
+    }
+
+    .proof__attr {
+      font-family: var(--fc);
+      font-size: clamp(16px, 2.6vw, 26px);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-top: 28px;
+    }
+
+    .proof__text {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(32px, 7.5vw, 72px);
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      color: var(--white);
+      max-width: 1100px;
+    }
+
+    /* ── REEL ── */
+
+    .reel {
+      padding: 0;
+      background: #fff;
+    }
+
+    .reel__header {
+      padding: clamp(40px, 6vh, 60px) var(--px) clamp(40px, 6vh, 60px);
+    }
+
+    .reel__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(22px, 4.5vw, 38px);
+      line-height: 1;
+      letter-spacing: -0.015em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .reel__sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.32);
+      line-height: 1.5;
+      margin-bottom: 32px;
+    }
+
+    .reel__strip {
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      padding-bottom: clamp(40px, 6vh, 64px);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .reel__strip::-webkit-scrollbar { display: none; }
+
+    .reel__item {
+      position: relative;
+      flex-shrink: 0;
+      width: clamp(180px, 38vw, 280px);
+      height: clamp(260px, 55vw, 420px);
+      overflow: hidden;
+      cursor: default;
+    }
+
+    .reel__item__bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      background-color: #e0e0e0;
+    }
+
+    .reel__item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(16,34,48,0.82) 0%, transparent 50%);
+    }
+
+    .reel__item__label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      padding: clamp(10px, 2vw, 16px);
+    }
+
+    .reel__item__event {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(17px, 3.2vw, 26px);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+
+    .reel__item__sub {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-top: 3px;
+    }
+
+    /* ── WHAT IT IS ── */
+
+    .what {
+      background: #fff;
+      padding: clamp(64px, 10vh, 96px) 0;
+      border-top: none;
+    }
+
+    .what__inner {
+      max-width: 860px;
+    }
+
+    .what__body {
+      font-size: clamp(17px, 2.6vw, 22px);
+      line-height: 1.62;
+      color: rgba(0,0,0,0.65);
+      margin-bottom: 0;
+    }
+
+    .what__body strong { color: rgba(0,0,0,0.85); font-weight: 600; }
+
+    /* ── TECH STACK ── */
+
+    .stack {
+      padding: clamp(64px, 10vh, 100px) 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .stack__header { margin-bottom: clamp(36px, 5vw, 52px); }
+
+    .stack__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(28px, 6vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .stack__sub {
+      font-size: clamp(14px, 2vw, 16px);
+      color: var(--off);
+      max-width: 520px;
+      line-height: 1.6;
+    }
+
+    .stack__group { margin-bottom: clamp(28px, 4vw, 44px); }
+
+    .stack__group-label {
+      font-family: var(--fc);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 12px;
+    }
+
+    .stack__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      margin-top: 2px;
+    }
+
+    @media (min-width: 600px) { .stack__grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 960px) { .stack__grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .stack__item {
+      background: var(--navy-mid);
+      padding: clamp(18px, 3vw, 26px);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .stack__item__name {
+      font-family: var(--fd);
+      font-weight: 700;
+      font-size: clamp(15px, 2.2vw, 17px);
+    }
+
+    .stack__item__detail {
+      font-size: clamp(13px, 1.7vw, 14px);
+      line-height: 1.65;
+      color: rgba(255,255,255,0.46);
+    }
+
+    .stack__item__detail strong { color: rgba(255,255,255,0.82); font-weight: 700; }
+
+    /* ── BACKSTAGE ── */
+
+    .backstage {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .backstage__clip {
+      width: 100%;
+      height: clamp(180px, 32vh, 340px);
+      object-fit: cover;
+      display: block;
+      background: var(--navy-dark);
+    }
+
+    /* ── WORLD FIRST ── */
+
+    .worldfirst {
+      padding: clamp(72px, 11vh, 110px) 0;
+      background: var(--navy-dark);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .worldfirst__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(36px, 6vw, 64px);
+    }
+
+    @media (min-width: 768px) {
+      .worldfirst__inner { grid-template-columns: 1fr 1fr; align-items: center; }
+    }
+
+    .worldfirst__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid rgba(255,130,0,0.35);
+      padding: 6px 12px;
+      margin-bottom: 24px;
+    }
+
+    .worldfirst__statement {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(24px, 5vw, 48px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .worldfirst__desc {
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height: 1.65;
+      color: var(--off);
+      margin-bottom: 20px;
+    }
+
+    .worldfirst__desc strong { color: var(--white); font-weight: 600; }
+
+    .worldfirst__quote {
+      border-left: 2px solid var(--orange);
+      padding-left: 16px;
+      font-size: clamp(14px, 1.9vw, 16px);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.68);
+      font-style: italic;
+    }
+
+    .worldfirst__attr {
+      margin-top: 20px;
+      font-family: var(--fc);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      font-style: normal;
+      display: block;
+    }
+
+    /* ── CADENCE ── */
+
+    .cadence {
+      padding: clamp(72px, 12vh, 110px) 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .cadence__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(36px, 6vw, 64px);
+      align-items: start;
+    }
+
+    @media (min-width: 720px) {
+      .cadence__inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    .cadence__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(32px, 7vw, 60px);
+      line-height: 0.92;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .cadence__headline em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .cadence__body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cadence__para {
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 1.78;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .cadence__para strong { color: var(--white); font-weight: 600; }
+
+    .cadence__nicholson {
+      margin-top: 8px;
+      padding: clamp(18px, 2.5vw, 24px);
+      border-left: 2px solid rgba(255,130,0,0.4);
+      background: var(--navy-mid);
+    }
+
+    .cadence__nicholson__text {
+      font-family: var(--fd);
+      font-weight: 700;
+      font-size: clamp(14px, 1.9vw, 16px);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.7);
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .cadence__nicholson__attr {
+      font-family: var(--fc);
+      font-size: clamp(11px, 1.5vw, 14px);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    /* ── ROLES ── */
+
+    .roles {
+      padding: clamp(64px, 10vh, 100px) 0;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .roles__header { margin-bottom: clamp(36px, 5vw, 56px); }
+
+    .roles__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(28px, 6vw, 54px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .roles__cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+
+    @media (min-width: 640px) { .roles__cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); } }
+
+    .roles__footer {
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .roles__footer-note {
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      line-height: 1.6;
+    }
+
+    .role-card {
+      background: var(--navy-mid);
+      padding: clamp(28px, 4vw, 40px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--orange);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    .role-card:hover::after { transform: scaleX(1); }
+
+    .role-card--coming { background: #fff; opacity: 1; }
+
+    .role-card__badge {
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .role-card--coming .role-card__badge { color: rgba(0,0,0,0.35); }
+    .role-card--coming .role-card__title { color: var(--navy-dark); }
+    .role-card--coming .role-card__desc  { color: rgba(0,0,0,0.52); }
+    .role-card--coming .btn--ghost { color: rgba(0,0,0,0.5); border-color: rgba(0,0,0,0.18); }
+    .role-card--coming .btn--ghost:hover { background: rgba(0,0,0,0.05); }
+
+    .role-card__title {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(20px, 3.5vw, 28px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+
+    .role-card__desc {
+      font-size: clamp(13px, 1.7vw, 14px);
+      line-height: 1.68;
+      color: var(--off);
+      flex-grow: 1;
+    }
+
+    /* ── BUTTONS ── */
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: var(--fc);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 24px;
+      background: var(--orange);
+      color: var(--navy);
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+      align-self: flex-start;
+    }
+
+    .btn--primary {
+      background: var(--orange);
+      color: var(--navy);
+      transition: background 0.2s;
+    }
+    .btn--primary:hover { background: #e07100; }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn--ghost:hover { background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+
+    .btn--dim {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.32);
+      cursor: default;
+    }
+
+    .btn--dim:hover { background: rgba(255,255,255,0.08); transform: none; }
+
+    /* ── APPLY ── */
+
+    .apply {
+      background: var(--navy-dark);
+      padding: clamp(80px, 15vh, 140px) var(--px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .apply__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .apply__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(40px, 10vw, 84px);
+      line-height: 0.9;
+      text-transform: uppercase;
+      letter-spacing: -0.025em;
+      margin-bottom: 40px;
+    }
+
+    .apply__headline em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .apply__body {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .apply__stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 44px;
+    }
+
+    .apply__contact {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .apply__contact a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    .apply__contact a:hover { text-decoration: underline; }
+
+    /* ── LOGO MARQUEE ── */
+
+    .logo-strip {
+      padding: clamp(60px, 8vw, 100px) 0;
+      overflow: hidden;
+    }
+
+    .logo-strip__label {
+      font-family: var(--fc);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+      text-align: center;
+      margin-bottom: 22px;
+      padding: 0 var(--px);
+    }
+
+    .logo-strip__mask {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    }
+
+    .logo-strip__track {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      padding: 0 22px;
+      width: max-content;
+      animation: marquee 34s linear infinite;
+    }
+
+    .logo-strip__track:hover { animation-play-state: paused; }
+
+    .logo-strip__item {
+      height: 18px;
+      opacity: 0.22;
+      filter: brightness(0) invert(1);
+      object-fit: contain;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
+    }
+
+    .logo-strip__item:hover { opacity: 0.52; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── STAT BREAK ── */
+
+    .stat-break {
+      background: var(--navy-dark);
+      padding: clamp(56px, 10vh, 96px) var(--px);
+      display: flex;
+      align-items: center;
+      gap: clamp(24px, 4vw, 56px);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .stat-break__num {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(80px, 18vw, 160px);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .stat-break__label {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(22px, 4.5vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+
+    footer {
+      padding: 24px var(--px);
+      background: #fff;
+    }
+
+    footer .foot-note {
+      font-family: var(--fc);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.4);
+    }
+
+    /* ── SHARED ── */
+
+    section { width: 100%; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--px);
+    }
+
+    .label {
+      font-family: var(--fc);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .label::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ── SCROLL REVEAL ── */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 600px) {
+      .proof { padding-top: 56px; padding-bottom: 56px; }
+      .proof__text { font-size: clamp(22px, 7.5vw, 72px); }
+      .backstage { grid-template-columns: 1fr; }
+      .backstage__clip { height: clamp(200px, 52vw, 340px); }
+      .worldfirst { padding-top: 56px; padding-bottom: 56px; }
+      .cadence { padding-top: 56px; padding-bottom: 56px; }
+      .cadence__headline { font-size: clamp(26px, 7vw, 60px); }
+      .roles { padding-top: 56px; padding-bottom: 56px; }
+      .apply { padding-top: 56px; padding-bottom: 56px; }
+      .apply__headline { font-size: clamp(26px, 9.5vw, 88px); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="cnav">
+    <button class="cnav__tab active" data-c="a">
+      <span class="tab-name">A. All Motion</span>
+    </button>
+    <button class="cnav__tab" data-c="b">
+      <span class="tab-name">B. Motion + Stills</span>
+    </button>
+    <button class="cnav__tab" data-c="c">
+      <span class="tab-name">C. Events</span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__reel" id="heroReel"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Wonderwall</p>
+      <h1 class="hero__headline">Help us build what's never been built before.</h1>
+      <p class="hero__sub">3,400 live. A different stage every week.</p>
+    </div>
+    <div class="hero__scene-label" id="heroLabel"></div>
+    <div class="hero__progress">
+      <div class="hero__progress-bar" id="progressBar"></div>
+    </div>
+  </section>
+
+  <!-- PROOF — Tim Corder -->
+  <section class="proof reveal">
+    <p class="proof__text">Nothing like this had ever been done before in front of a live audience in a room anywhere near this size.</p>
+    <p class="proof__attr">Tim Corder &nbsp;&middot;&nbsp; VP Faith &amp; Performance, Diversified</p>
+  </section>
+
+  <!-- REEL -->
+  <section class="reel">
+    <div class="reel__strip">
+      <div class="reel__item">
+        <div class="reel__item__bg" id="reel0"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Christmas</p>
+        </div>
+      </div>
+      <div class="reel__item">
+        <div class="reel__item__bg" id="reel1"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Super Bowl</p>
+        </div>
+      </div>
+      <div class="reel__item">
+        <div class="reel__item__bg" id="reel2"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Journey</p>
+        </div>
+      </div>
+      <div class="reel__item">
+        <div class="reel__item__bg" id="reel3"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Easter</p>
+        </div>
+      </div>
+      <div class="reel__item">
+        <div class="reel__item__bg" id="reel4"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Worship</p>
+        </div>
+      </div>
+      <div class="reel__item">
+        <div class="reel__item__bg" id="reel5"></div>
+        <div class="reel__item__label">
+          <p class="reel__item__event">Message</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT IS -->
+  <section class="what">
+    <div class="wrap">
+      <div class="what__inner reveal">
+        <p class="label">What this is</p>
+        <p class="what__body">
+          A game ships once. A film wraps. Broadcast runs its cycle and moves on. <strong>None of those put you in front of a live audience every seven days with a complete reset.</strong><br><br>
+          The Wonderwall runs <strong>Unreal Engine environments live</strong> &mdash; no pre-renders &mdash; while the stage physically reconfigures around it. <strong>A small crew. The same people. Every week.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="stack">
+    <div class="wrap">
+      <div class="stack__header reveal">
+        <p class="label">The Stack</p>
+      </div>
+
+      <div class="stack__group reveal">
+        <p class="stack__group-label">Rendering</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">Unreal Engine</p>
+            <p class="stack__item__detail">Real-time via RenderStream. Navigate the 3D environment <strong>during the service</strong> &mdash; not before it. Not after it.</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">Disguise</p>
+            <p class="stack__item__detail"><strong>29 servers.</strong> Gx3+ (7x) &middot; Gx3 (10x) &middot; Rx3 (12x).</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">Notch</p>
+            <p class="stack__item__detail">Real-time effects composited with UE environments and live feeds. <strong>No pre-renders anywhere in the chain.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack__group reveal" style="transition-delay:0.06s">
+        <p class="stack__group-label">Display</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">ROE LED &mdash; 9 Surfaces</p>
+            <p class="stack__item__detail">BP2v2, BM4, Jasper 2.6, Vanish. <strong>Four surfaces are automated moving walls.</strong> The stage reconfigures between environments.</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">Megapixel HELIOS</p>
+            <p class="stack__item__detail">LED processing &middot; <strong>GhostFrame integration.</strong> Two signals, one refresh cycle, zero switching.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack__group reveal" style="transition-delay:0.12s">
+        <p class="stack__group-label">Camera &amp; Tracking</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">8x RED KOMODO-X</p>
+            <p class="stack__item__detail">GhostFrame-integrated. Each camera tracked in 3D via Stype. <strong>Frame-accurate frustum alignment</strong> &mdash; the AR layer locks to the lens, not the room.</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">Stage Precision &middot; TiMax</p>
+            <p class="stack__item__detail">Spatial calibration and talent tracking. <strong>Every element knows exactly where it is</strong> in 3D space.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack__group reveal" style="transition-delay:0.18s">
+        <p class="stack__group-label">Signal &amp; Automation</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">Ross Video Ultrix FR12</p>
+            <p class="stack__item__detail">4K routing &middot; 12 Gbps pipeline. <strong>Broadcast-grade signal chain</strong> &mdash; same infrastructure as major live events.</p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">TAIT Automation</p>
+            <p class="stack__item__detail">LED wall rigging. <strong>The walls move mid-service.</strong> Not between services. During.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack__group reveal" style="transition-delay:0.24s">
+        <p class="stack__group-label">Audio</p>
+        <div class="stack__grid">
+          <div class="stack__item">
+            <p class="stack__item__name">L-Acoustics L-ISA</p>
+            <p class="stack__item__detail">Object-based spatial audio. <strong>Sound position moves with environment changes.</strong></p>
+          </div>
+          <div class="stack__item">
+            <p class="stack__item__name">DiGiCo Quantum7 &middot; Quantum5</p>
+            <p class="stack__item__detail">FOH and monitors. <strong>Same consoles on major touring productions.</strong></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BACKSTAGE -->
+  <div class="backstage">
+    <video class="backstage__clip" autoplay muted loop playsinline>
+      <source src="../../04-sources/assets/videos/backstage/programs-1.mp4" type="video/mp4" />
+    </video>
+    <video class="backstage__clip" autoplay muted loop playsinline>
+      <source src="../../04-sources/assets/videos/backstage/individual.mp4" type="video/mp4" />
+    </video>
+    <video class="backstage__clip" autoplay muted loop playsinline>
+      <source src="../../04-sources/assets/videos/backstage/grids-1.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- WORLD FIRST -->
+  <section class="worldfirst">
+    <div class="wrap">
+      <div class="worldfirst__inner">
+        <div class="reveal">
+          <p class="worldfirst__badge">World First &mdash; 2025</p>
+          <h2 class="worldfirst__statement">In-person and broadcast audiences see two different versions of the same stage. At the same time.</h2>
+        </div>
+        <div class="reveal" style="transition-delay:0.12s">
+          <p class="worldfirst__desc">
+            In-person attendees see one environment. Broadcast cameras capture something else entirely from the same surface. Both live at once. 3,400 people in the room.
+          </p>
+          <blockquote class="worldfirst__quote">
+            "The largest known use of GhostFrame in a live venue. Anywhere."
+          </blockquote>
+          <cite class="worldfirst__attr">Scott Lau &mdash; Technical Project Manager, Disguise</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT BREAK -->
+  <div class="stat-break">
+    <span class="stat-break__num">52</span>
+    <span class="stat-break__label">Sundays<br>a year.<br>Same crew.</span>
+  </div>
+
+  <!-- CADENCE -->
+  <section class="what" style="background: var(--navy-mid); padding: clamp(72px, 12vh, 110px) 0;">
+    <div class="wrap">
+      <div class="cadence__inner">
+        <div class="cadence__headline reveal">
+          Not a one-time build.<br><br>
+          <em>Every seven<br>days.</em>
+        </div>
+        <div class="cadence__body reveal" style="transition-delay:0.1s">
+          <p class="cadence__para">
+            3,400 people in the room every Sunday. You know what worked &mdash; and what didn't &mdash; before the following week begins. <strong>The feedback loop is the job.</strong>
+          </p>
+          <p class="cadence__para">
+            The production team is small by design. That means the operator's role is significant. <strong>Not a component of a large pipeline &mdash; the pipeline.</strong>
+          </p>
+          <div class="cadence__nicholson">
+            <p class="cadence__nicholson__text">"We went well beyond traditional church production references and started looking at live entertainment, Broadway, and virtual production."</p>
+            <span class="cadence__nicholson__attr">Ben Nicholson &mdash; Technical Consultant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLES -->
+  <section class="roles">
+    <div class="wrap">
+      <div class="roles__header">
+        <p class="label reveal">Work here</p>
+        <h2 class="roles__headline reveal">A small crew.<br>Major touring scale.</h2>
+      </div>
+      <div class="roles__cards">
+        <div class="role-card reveal">
+          <h3 class="role-card__title">Disguise Programmer</h3>
+          <p class="role-card__badge">Technology</p>
+          <p class="role-card__desc">Own the Disguise signal chain: server configuration, RenderStream routing, GhostFrame integration, and show stability across 29 media servers and 9 LED surfaces. Running live production, every week.</p>
+          <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings/details/Disguise-Programmer_R-100100" class="btn" target="_blank" rel="noopener"><span>Apply Now</span><span>&#8594;</span></a>
+        </div>
+        <div class="role-card role-card--coming reveal" style="transition-delay:0.08s">
+          <p class="role-card__badge">Coming Soon</p>
+          <h3 class="role-card__title">Technical Artist</h3>
+          <p class="role-card__desc">Build and iterate real-time Unreal Engine environments for live services and broadcast. Lighting, shaders, materials, world-building inside scenes that run in front of thousands every week.</p>
+          <p style="font-size:12px;line-height:1.5;color:rgba(0,0,0,0.3);margin-bottom:4px;">Role opening soon. Email us and we'll reach out when it posts.</p>
+          <a href="mailto:wonderwall@crossroads.net?subject=Technical%20Artist%20%E2%80%94%20Notify%20Me" class="btn btn--ghost"><span>Get Notified</span><span>&#8594;</span></a>
+        </div>
+      </div>
+      <div class="roles__footer">
+        <p class="roles__footer-note">Creative &middot; Tech &middot; Production &nbsp;&middot;&nbsp; The Wonderwall team spans creative, production, and tech. Roles open as the team scales.</p>
+        <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings" class="btn btn--ghost" target="_blank" rel="noopener">View All Roles</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS — marquee -->
+  <div class="logo-strip">
+    <p class="logo-strip__label">Tools &amp; Partners</p>
+    <div class="logo-strip__mask">
+      <div class="logo-strip__track">
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/unreal-engine.svg" alt="Unreal Engine" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/disguise.svg" alt="Disguise" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/notch.svg" alt="Notch" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/roe.svg" alt="ROE Visual" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/megapixel.svg" alt="Megapixel" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/ross.svg" alt="Ross Video" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/tait.svg" alt="TAIT" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/l-acoustics.svg" alt="L-Acoustics" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/digico.svg" alt="DiGiCo" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/stype.svg" alt="Stype" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/stage-precision.svg" alt="Stage Precision" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/carbon-for-unreal.svg" alt="Carbon for Unreal" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/lightborne.svg" alt="Lightborne" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/visual-endeavors.svg" alt="Visual Endeavors" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/silent-partners.svg" alt="Silent Partners Studio" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/possible.svg" alt="Possible" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/luz.svg" alt="Luz" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/raw-cereal.svg" alt="Raw Cereal" />
+        <!-- duplicate for seamless loop -->
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/unreal-engine.svg" alt="Unreal Engine" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/disguise.svg" alt="Disguise" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/notch.svg" alt="Notch" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/roe.svg" alt="ROE Visual" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/megapixel.svg" alt="Megapixel" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/ross.svg" alt="Ross Video" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/tait.svg" alt="TAIT" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/l-acoustics.svg" alt="L-Acoustics" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/digico.svg" alt="DiGiCo" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/stype.svg" alt="Stype" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/stage-precision.svg" alt="Stage Precision" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/carbon-for-unreal.svg" alt="Carbon for Unreal" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/lightborne.svg" alt="Lightborne" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/visual-endeavors.svg" alt="Visual Endeavors" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/silent-partners.svg" alt="Silent Partners Studio" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/possible.svg" alt="Possible" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/luz.svg" alt="Luz" />
+        <img class="logo-strip__item" src="../../04-sources/assets/logos/raw-cereal.svg" alt="Raw Cereal" />
+      </div>
+    </div>
+  </div>
+
+  <!-- APPLY -->
+  <section class="apply">
+    <div class="apply__inner">
+      <p class="label reveal">Make the move</p>
+      <h2 class="apply__headline reveal">Your work.<br><em>Live.</em><br>Weekly.</h2>
+      <p class="apply__body reveal" style="transition-delay:0.05s">Most technical artists spend years chasing one project this ambitious. Here it's every Sunday. A different world built from scratch. 3,400 people in the room. No second takes. This is the job.</p>
+      <div class="apply__stack reveal" style="transition-delay:0.1s">
+        <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings" class="btn btn--primary" target="_blank" rel="noopener"><span>View Open Roles</span><span>→</span></a>
+      </div>
+      <p class="apply__contact reveal" style="transition-delay:0.15s">
+        Want to know what a week looks like here?<br>
+        <a href="mailto:wonderwall@crossroads.net">wonderwall@crossroads.net</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="foot-note">[footer]</p>
+  </footer>
+
+  <script>
+    const ASSETS = '../../04-sources/assets/';
+
+    // ── Hero concept data (same as hero-showreel A / B / C)
+    const CONCEPTS = {
+      a: {
+        interval: 4000,
+        clips: [
+          { type: 'video', src: ASSETS + 'videos/messages/mountain-top.mp4',           label: 'A Mountaintop &nbsp;&middot;&nbsp; Inside a Room' },
+          { type: 'video', src: ASSETS + 'videos/messages/lion.mp4',         seek: 12,  label: "Lion's Den &nbsp;&middot;&nbsp; Built in a Day" },
+          { type: 'video', src: ASSETS + 'videos/messages/rock-water.mp4',              label: 'Rock &nbsp;&middot;&nbsp; Real Time' },
+          { type: 'video', src: ASSETS + 'videos/messages/red-sea-part-action.mp4', seek: 7, label: 'Red Sea &nbsp;&middot;&nbsp; Unreal Engine' },
+          { type: 'video', src: ASSETS + 'videos/messages/noah-arc-transition.mp4',     label: "Noah's Ark &nbsp;&middot;&nbsp; To Scale" },
+          { type: 'video', src: ASSETS + 'videos/messages/basketball-long.mp4',         label: 'Live Scale' },
+          { type: 'video', src: ASSETS + 'videos/messages/scorpian-arena-crush.mp4', seek: 9, label: 'A Coliseum &nbsp;&middot;&nbsp; On Stage' },
+        ]
+      },
+      b: {
+        interval: 4500,
+        clips: [
+          { type: 'image', src: ASSETS + 'images/events/christmas/christmas-hero-crowd-forest.webp', label: '3,400 People &nbsp;&middot;&nbsp; Every Sunday' },
+          { type: 'video', src: ASSETS + 'videos/messages/red-sea-part-action.mp4', seek: 7, label: 'Red Sea &nbsp;&middot;&nbsp; Real Time &nbsp;&middot;&nbsp; Unreal Engine' },
+          { type: 'image', src: ASSETS + 'images/events/super-bowl/super-bowl-orange-concert.webp',  label: 'Super Bowl &nbsp;&middot;&nbsp; Same Stage' },
+          { type: 'video', src: ASSETS + 'videos/messages/lion.mp4', seek: 12, label: "Lion's Den &nbsp;&middot;&nbsp; Built in a Day" },
+          { type: 'image', src: ASSETS + 'images/events/easter/easter-overhead-wide.webp',           label: 'Easter &nbsp;&middot;&nbsp; 3,400 People' },
+          { type: 'video', src: ASSETS + 'videos/messages/mountain-top.mp4',                         label: 'A Mountaintop &nbsp;&middot;&nbsp; Inside a Room' },
+        ]
+      },
+      c: {
+        interval: 3000,
+        clips: [
+          { type: 'image', src: ASSETS + 'images/events/christmas/christmas-hero-crowd-forest.webp',  label: 'Christmas 2025 &nbsp;&middot;&nbsp; 3,400 People' },
+          { type: 'image', src: ASSETS + 'images/events/super-bowl/super-bowl-videogame-led.webp',    label: 'Super Bowl &nbsp;&middot;&nbsp; Same Stage' },
+          { type: 'image', src: ASSETS + 'images/events/journey/journey-roman-wide.webp',             label: 'Journey Series &nbsp;&middot;&nbsp; Ancient Rome' },
+          { type: 'image', src: ASSETS + 'images/events/super-bowl/super-bowl-cathedral-dark.webp',   label: 'Message &nbsp;&middot;&nbsp; Every Week' },
+          { type: 'image', src: ASSETS + 'images/events/easter/easter-overhead-wide.webp',            label: 'Easter &nbsp;&middot;&nbsp; 3,400 People' },
+          { type: 'image', src: ASSETS + 'images/events/christmas/christmas-performers-forest.webp',  label: 'Christmas &nbsp;&middot;&nbsp; Live Performers' },
+        ]
+      }
+    };
+
+    const heroReel    = document.getElementById('heroReel');
+    const heroLabel   = document.getElementById('heroLabel');
+    const progressBar = document.getElementById('progressBar');
+    let activeConcept = 'a';
+    let heroCurrent   = 0;
+    let heroTimer     = null;
+
+    function startProgress(ms) {
+      progressBar.style.transition = 'none';
+      progressBar.style.width = '0%';
+      void progressBar.offsetWidth;
+      progressBar.style.transition = `width ${ms / 1000}s linear`;
+      progressBar.style.width = '100%';
+    }
+
+    function updateLabel(html) {
+      heroLabel.classList.add('fade');
+      setTimeout(() => { heroLabel.innerHTML = html; heroLabel.classList.remove('fade'); }, 220);
+    }
+
+    function advanceHero() {
+      const clips    = heroReel.querySelectorAll('.hero__clip');
+      const interval = CONCEPTS[activeConcept].interval;
+      const next     = (heroCurrent + 1) % clips.length;
+      const nextVid  = clips[next].querySelector('video');
+      const seekTo   = parseFloat(clips[next].dataset.seek || '0');
+
+      function doSwitch() {
+        clips[heroCurrent].classList.remove('active');
+        const curVid = clips[heroCurrent].querySelector('video');
+        if (curVid) { curVid.pause(); curVid.currentTime = parseFloat(clips[heroCurrent].dataset.seek || '0'); }
+        clips[next].classList.add('active');
+        if (nextVid) nextVid.play().catch(() => {});
+        updateLabel(clips[next].dataset.label);
+        heroCurrent = next;
+        startProgress(interval);
+      }
+
+      if (nextVid) { nextVid.currentTime = seekTo; nextVid.addEventListener('seeked', doSwitch, { once: true }); }
+      else doSwitch();
+    }
+
+    function buildHero(key) {
+      clearInterval(heroTimer);
+      heroReel.innerHTML = '';
+      heroCurrent = 0;
+      const concept = CONCEPTS[key];
+
+      concept.clips.forEach((clip, i) => {
+        const div = document.createElement('div');
+        div.className = 'hero__clip' + (i === 0 ? ' active' : '');
+        div.dataset.label = clip.label || '';
+        if (clip.seek) div.dataset.seek = clip.seek;
+
+        if (clip.type === 'video') {
+          const vid = document.createElement('video');
+          vid.muted = true; vid.setAttribute('playsinline', ''); vid.preload = 'auto';
+          const src = document.createElement('source');
+          src.src = clip.src; src.type = 'video/mp4';
+          vid.appendChild(src);
+          div.appendChild(vid);
+          if (clip.seek) {
+            const s = parseFloat(clip.seek);
+            vid.loop = false;
+            vid.addEventListener('timeupdate', function() { if (this.duration && this.currentTime >= this.duration - 0.8) this.currentTime = s; });
+            vid.addEventListener('ended', function() { this.currentTime = s; if (div.classList.contains('active')) this.play().catch(() => {}); });
+            vid.addEventListener('loadedmetadata', function() { this.currentTime = s; }, { once: true });
+          } else {
+            vid.loop = true;
+          }
+          if (i === 0) vid.play().catch(() => {});
+        } else {
+          const img = document.createElement('img'); img.src = clip.src; img.alt = '';
+          div.appendChild(img);
+        }
+        heroReel.appendChild(div);
+      });
+
+      heroLabel.innerHTML = concept.clips[0].label || '';
+      startProgress(concept.interval);
+      heroTimer = setInterval(advanceHero, concept.interval);
+    }
+
+    // ── Image fallback utility
+    function loadBg(el, primary, fallback) {
+      const img = new Image();
+      const set = src => { el.style.backgroundImage = `url('${src}')`; };
+      img.onload  = () => set(primary);
+      img.onerror = () => {
+        const fb = new Image();
+        fb.onload  = () => set(fallback);
+        fb.onerror = () => {};
+        fb.src = fallback;
+      };
+      img.src = primary;
+    }
+
+    const IMG = ASSETS + 'images/';
+
+    const DEFAULT_REEL = [
+      { type: 'img', primary: IMG + 'events/christmas/christmas-crowd-amber.webp',       fallback: IMG + 'events/christmas/christmas-crowd-wide.webp',       event: 'Christmas' },
+      { type: 'img', primary: IMG + 'events/super-bowl/super-bowl-pixels-crowd.webp',    fallback: IMG + 'events/super-bowl/super-bowl-crowd-lights.webp',   event: 'Super Bowl' },
+      { type: 'img', primary: IMG + 'events/journey/journey-red-sky-arch.webp',          fallback: IMG + 'events/journey/journey-roman-wide.webp',           event: 'Journey' },
+      { type: 'img', primary: IMG + 'events/easter/easter-overhead-mosaic.webp',         fallback: IMG + 'events/easter/easter-overhead-floral.webp',        event: 'Easter' },
+      { type: 'img', primary: IMG + 'music/count-me-in-2.webp',                          fallback: IMG + 'music/count-me-in-1.webp',                         event: 'Worship' },
+      { type: 'img', primary: IMG + 'music/text-2.webp',                                 fallback: IMG + 'music/text-1.webp',                                event: 'Message' },
+    ];
+
+    const VID = ASSETS + 'videos/messages/';
+    const TEACHING_REEL = [
+      { type: 'video', src: VID + 'mountain-top.mp4',          event: 'A Mountaintop' },
+      { type: 'video', src: VID + 'lion.mp4',          seek: 12, event: "Lion's Den" },
+      { type: 'video', src: VID + 'rock-water.mp4',             event: 'Rock' },
+      { type: 'video', src: VID + 'red-sea-part-action.mp4', seek: 7, event: 'Red Sea' },
+      { type: 'video', src: VID + 'noah-arc-transition.mp4',    event: "Noah's Ark" },
+      { type: 'video', src: VID + 'basketball-long.mp4',        event: 'Live Scale' },
+    ];
+
+    function buildReel(key) {
+      const items = key === 'c' ? TEACHING_REEL : DEFAULT_REEL;
+      items.forEach((item, i) => {
+        const bg = document.getElementById('reel' + i);
+        const eventEl = bg.parentElement.querySelector('.reel__item__event');
+        if (item.type === 'video') {
+          const existing = bg.querySelector('video');
+          if (existing) { existing.pause(); existing.removeAttribute('src'); }
+          bg.innerHTML = '';
+          bg.style.backgroundImage = '';
+          const vid = document.createElement('video');
+          vid.muted = true; vid.autoplay = true; vid.loop = true;
+          vid.setAttribute('playsinline', ''); vid.preload = 'auto';
+          vid.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;';
+          const src = document.createElement('source');
+          src.src = item.src; src.type = 'video/mp4';
+          vid.appendChild(src);
+          if (item.seek) {
+            const s = parseFloat(item.seek);
+            vid.addEventListener('loadedmetadata', () => { vid.currentTime = s; }, { once: true });
+            vid.addEventListener('timeupdate', function() { if (this.duration && this.currentTime >= this.duration - 0.8) this.currentTime = s; });
+          }
+          bg.appendChild(vid);
+          vid.play().catch(() => {});
+        } else {
+          const existing = bg.querySelector('video');
+          if (existing) { existing.pause(); existing.removeAttribute('src'); bg.innerHTML = ''; }
+          loadBg(bg, item.primary, item.fallback);
+        }
+        if (eventEl) eventEl.textContent = item.event;
+      });
+    }
+
+    // Tab switching
+    document.querySelectorAll('.cnav__tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.dataset.c === activeConcept) return;
+        activeConcept = btn.dataset.c;
+        document.querySelectorAll('.cnav__tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        buildHero(activeConcept);
+        buildReel(activeConcept);
+      });
+    });
+
+    buildHero('a');
+    buildReel('a');
+
+    window.setAsset = function(key) {
+      if (key === activeConcept) return;
+      activeConcept = key;
+      document.querySelectorAll('.cnav__tab').forEach(t => t.classList.remove('active'));
+      const tab = document.querySelector(`.cnav__tab[data-c="${key}"]`);
+      if (tab) tab.classList.add('active');
+      buildHero(key);
+      buildReel(key);
+    };
+
+    window.addEventListener('message', function(e) {
+      if (e.data && e.data.type === 'setAsset') window.setAsset(e.data.key);
+    });
+
+    // ── Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>

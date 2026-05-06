@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wonderwall — Crossroads Church</title>
+  <link rel="stylesheet" href="https://use.typekit.net/yax3ayc.css" />
+  <link rel="stylesheet" href="https://use.typekit.net/klz4bgj.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;0,900;1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet" />
+  <script>
+  if (location.search.includes('compare')) {
+    var s = document.createElement('style');
+    s.textContent = `*{text-transform:none!important;letter-spacing:normal!important}.cnav{display:none!important}.section-label::after{display:none!important}.hero__scene-label{display:none!important}:root{--nav-h:0px!important;--orange:rgba(0,0,0,0.5)!important;--navy:#f0f0f0!important;--navy-mid:#e8e8e8!important;--navy-light:#e0e0e0!important;--dark:#ffffff!important;--white:#111111!important}body{background:#fff!important}body::before{display:none!important}.hero__headline{color:#fff!important;text-shadow:none!important}.logos__item{filter:brightness(0)!important;opacity:0.22!important}.scroll-wrapper{outline-color:rgba(0,0,0,0.1)!important}.scene-counter{color:rgba(255,255,255,0.55)!important}.scene-descriptor{color:#fff!important;text-shadow:none!important}.what__claim{border-left-color:rgba(0,0,0,0.2)!important}.operator-quote::before{color:rgba(0,0,0,0.04)!important}.btn--primary{background:rgba(0,0,0,0.82)!important;color:#fff!important}.btn--ghost{color:rgba(0,0,0,0.55)!important;border-color:rgba(0,0,0,0.18)!important}.btn--muted{color:rgba(0,0,0,0.22)!important;border-color:rgba(0,0,0,0.08)!important}.proof__text{color:rgba(0,0,0,0.85)!important}.proof__attribution{color:rgba(0,0,0,0.5)!important}.what__graph{color:rgba(0,0,0,0.65)!important}.what__graph strong{color:rgba(0,0,0,0.82)!important}.stack__detail{color:rgba(0,0,0,0.52)!important}.stack__detail strong{color:rgba(0,0,0,0.78)!important}.operator-view__eyebrow,.logos__label,.footer__id{color:rgba(0,0,0,0.38)!important}.operator-quote__source{color:rgba(0,0,0,0.42)!important}.operator-quote__text{color:rgba(0,0,0,0.85)!important}.cadence__para{color:rgba(0,0,0,0.62)!important}.cadence__para strong{color:rgba(0,0,0,0.82)!important}.cadence__headline{color:rgba(0,0,0,0.85)!important}.role-card__title{color:rgba(0,0,0,0.85)!important}.role-card__desc{color:rgba(0,0,0,0.52)!important}.role-card__contact{color:rgba(0,0,0,0.38)!important}.apply__contact{color:rgba(0,0,0,0.45)!important}.apply__body{color:rgba(0,0,0,0.55)!important}.footer__site{color:rgba(0,0,0,0.28)!important}.hero__overlay{background:linear-gradient(to bottom,rgba(0,0,0,0.12) 0%,transparent 22%,transparent 42%,rgba(0,0,0,0.52) 64%,rgba(0,0,0,0.9) 82%,#000 100%),radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,0.36) 100%)!important}`;
+    document.head.appendChild(s);
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF8200;
+      --navy:   #102230;
+      --navy-mid:   #1a2f40;
+      --navy-light: #253746;
+      --dark:   #070f18;
+      --white:  #ffffff;
+      --fd: acumin-pro, 'Barlow', sans-serif;
+      --fc: acumin-pro-extracondensed, 'Barlow Condensed', sans-serif;
+      --texture: url('https://crds-media.imgix.net/5keOksLK6PtMmlTnUQQeRT/86d3609bea8e6725c7a0b38a9a5530f3/texture-topo-dark-50_2x.png');
+      --nav-h: 44px;
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: var(--fd);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: var(--texture);
+      background-size: 500px;
+      opacity: 0.11;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ============================================================
+       NAV — concept switcher
+    ============================================================ */
+    .cnav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      z-index: 9000;
+      background: rgba(5,12,19,0.92);
+      border-bottom: 1px solid rgba(255,130,0,0.2);
+      display: flex;
+      align-items: stretch;
+      padding: 0 20px;
+      gap: 2px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .cnav__tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: rgba(255,255,255,0.3);
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.15s;
+      white-space: nowrap;
+    }
+
+    .cnav__tab .tab-letter { font-size: 13px; }
+    .cnav__tab .tab-name   { display: none; }
+    @media (min-width: 520px) { .cnav__tab .tab-name { display: inline; } }
+    .cnav__tab:hover  { color: rgba(255,255,255,0.6); }
+    .cnav__tab.active { color: var(--orange); border-bottom-color: var(--orange); }
+
+    /* ============================================================
+       HERO — auto-cycling clips
+    ============================================================ */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 80dvh;
+      min-height: 480px;
+      overflow: hidden;
+      background: var(--dark);
+    }
+
+    /* Clip layers */
+    .hero__reel {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero__clip {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.85s ease;
+    }
+
+    .hero__clip.active { opacity: 1; }
+
+    .hero__clip img,
+    .hero__clip video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Gradient: readable bottom, vignette edges */
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(7,15,24,0.12) 0%,
+          transparent 22%,
+          transparent 42%,
+          rgba(7,15,24,0.52) 64%,
+          rgba(7,15,24,0.9) 82%,
+          var(--dark) 100%
+        ),
+        radial-gradient(ellipse at center, transparent 40%, rgba(7,15,24,0.36) 100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Text */
+    .hero__content {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 clamp(20px, 5vw, 56px) clamp(36px, 8vh, 72px);
+    }
+
+    .hero__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(32px, 9vw, 96px);
+      line-height: 0.88;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      color: var(--white);
+      max-width: 900px;
+    }
+
+    .hero__sub {
+      margin-top: clamp(14px, 2.5vh, 22px);
+      font-family: var(--fc);
+      font-size: clamp(14px, 2.5vw, 20px);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.72);
+    }
+
+    /* Changing scene label — bottom right, broadcast style */
+    .hero__scene-label {
+      position: absolute;
+      bottom: clamp(36px, 8vh, 72px);
+      right: clamp(20px, 5vw, 56px);
+      z-index: 10;
+      font-family: var(--fc);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      text-align: right;
+      transition: opacity 0.22s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero__scene-label::before {
+      content: '';
+      display: block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+      box-shadow: 0 0 7px var(--orange);
+      animation: livePulse 2s ease-in-out infinite;
+    }
+
+    .hero__scene-label.fade { opacity: 0; }
+
+    @keyframes livePulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.25; }
+    }
+
+    /* Progress bar */
+    .hero__progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(255,255,255,0.07);
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    .hero__progress-bar {
+      height: 100%;
+      background: var(--orange);
+      width: 0%;
+      transition: none;
+    }
+
+    /* ============================================================
+       PROOF — Tim Corder quote, film-title-card treatment
+    ============================================================ */
+    .proof {
+      background: var(--dark);
+      padding: clamp(80px, 16vh, 150px) clamp(20px, 6vw, 80px);
+      border-top: 1px solid rgba(255,130,0,0.1);
+    }
+
+    .proof__attribution {
+      font-family: var(--fc);
+      font-size: clamp(16px, 2.6vw, 26px);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-top: 28px;
+    }
+
+    .proof__text {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(32px, 7.5vw, 72px);
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      color: var(--white);
+      max-width: 1000px;
+    }
+
+    /* ============================================================
+       WHAT — three paragraphs, no fluff
+    ============================================================ */
+    .what {
+      background: #fff;
+      padding: clamp(72px, 13vh, 120px) clamp(20px, 6vw, 80px);
+    }
+
+    .what__inner {
+      max-width: 720px;
+    }
+
+    .section-label {
+      font-family: var(--fc);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .what .section-label::after {
+      background: rgba(0,0,0,0.1);
+    }
+
+    .what__graph {
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height: 1.78;
+      color: rgba(0,0,0,0.65);
+      margin-bottom: 26px;
+    }
+
+    .what__graph:last-child { margin-bottom: 0; }
+
+    .what__graph strong {
+      color: rgba(0,0,0,0.85);
+      font-weight: 700;
+    }
+
+    /* Pulled claim — display-scale standalone line */
+    .what__claim {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(28px, 6vw, 56px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.88);
+      margin: 44px 0;
+      padding-left: 20px;
+      border-left: 3px solid var(--orange);
+    }
+
+    .what__claim span {
+      display: block;
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    /* ============================================================
+       SCENE REEL — scroll-driven
+    ============================================================ */
+    #transformation {
+      position: relative;
+      background: var(--dark);
+      /* height set dynamically by JS */
+    }
+
+    .scene-sticky {
+      position: sticky;
+      top: var(--nav-h);
+      height: calc(100vh - var(--nav-h));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .scroll-wrapper {
+      position: relative;
+      width: 92vw;
+      aspect-ratio: 16 / 9;
+      max-height: 80vh;
+      overflow: hidden;
+      outline: 1px solid rgba(255,130,0,0.15);
+      outline-offset: -1px;
+    }
+
+    @media (min-width: 768px) {
+      .scroll-wrapper { width: 80vw; }
+    }
+
+    .scene-layer {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+    }
+
+    .scene-layer.active { opacity: 1; }
+
+    .scene-layer img,
+    .scene-layer video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .scene-ui {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .scene-counter {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--orange);
+      text-transform: uppercase;
+    }
+
+    .scene-descriptor {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(16px, 3.5vw, 28px);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      text-shadow: 0 2px 14px rgba(0,0,0,0.7);
+      opacity: 0;
+      transform: translateY(5px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .scene-descriptor.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       STACK — tool + role pairs
+    ============================================================ */
+    .stack {
+      background: var(--navy);
+      padding: clamp(64px, 12vh, 104px) clamp(20px, 6vw, 80px);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .stack__list {
+      margin-top: 4px;
+    }
+
+    .stack__row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      align-items: start;
+    }
+
+    @media (min-width: 640px) {
+      .stack__row {
+        grid-template-columns: 260px 1fr;
+        gap: 32px;
+        padding: 18px 0;
+      }
+    }
+
+    .stack__tool {
+      font-family: var(--fc);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .stack__detail {
+      font-family: var(--fd);
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.5);
+      padding-top: 1px;
+    }
+
+    .stack__detail strong {
+      color: rgba(255,255,255,0.82);
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       OPERATOR VIEW — programs strip
+    ============================================================ */
+    .operator-view {
+      background: var(--dark);
+      padding: 0 clamp(20px, 6vw, 80px) clamp(40px, 7vh, 64px);
+      border-top: none;
+    }
+
+    .operator-view__eyebrow {
+      font-family: var(--fc);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+      margin-bottom: 16px;
+    }
+
+    .operator-view__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 3px;
+    }
+
+    @media (max-width: 600px) {
+      .operator-view__grid { grid-template-columns: 1fr; }
+    }
+
+    .operator-view__clip {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .operator-view__clip video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ============================================================
+       LOGOS — built-with marquee
+    ============================================================ */
+    .logos {
+      padding: clamp(44px, 8vh, 72px) 0;
+      background: var(--navy);
+      overflow: hidden;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .logos__label {
+      font-family: var(--fc);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+      text-align: center;
+      margin-bottom: 24px;
+      padding: 0 20px;
+    }
+
+    .logos__mask {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    }
+
+    .logos__track {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      padding: 0 22px;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+
+    .logos__track:hover { animation-play-state: paused; }
+
+    .logos__item {
+      display: flex;
+      align-items: center;
+      height: 22px;
+      flex-shrink: 0;
+      opacity: 0.32;
+      filter: brightness(0) invert(1);
+      transition: opacity 0.2s;
+    }
+
+    .logos__item:hover { opacity: 0.65; }
+
+    .logos__item img {
+      height: 100%;
+      width: auto;
+      max-width: 110px;
+      object-fit: contain;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       OPERATOR QUOTE — Craig Dockery
+    ============================================================ */
+    .operator-quote {
+      background: var(--dark);
+      padding: clamp(80px, 16vh, 150px) clamp(20px, 6vw, 80px) clamp(24px, 4vh, 40px);
+      border-top: 1px solid rgba(255,130,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .operator-quote::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.12em;
+      right: 2vw;
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(200px, 36vw, 400px);
+      color: rgba(255,130,0,0.04);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .operator-quote__text {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(32px, 7.5vw, 72px);
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      color: var(--white);
+      max-width: 1000px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .operator-quote__text em {
+      font-style: normal;
+      color: var(--white);
+    }
+
+    .operator-quote__source {
+      margin-top: 28px;
+      font-family: var(--fc);
+      font-size: clamp(16px, 2.6vw, 26px);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    /* ============================================================
+       CADENCE — the weekly cycle copy
+    ============================================================ */
+    .cadence {
+      background: var(--navy);
+      padding: clamp(64px, 12vh, 104px) clamp(20px, 6vw, 80px);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (min-width: 720px) {
+      .cadence {
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+      }
+    }
+
+    .cadence__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(30px, 6vw, 54px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .cadence__headline em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .cadence__body {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cadence__para {
+      font-size: clamp(14px, 1.9vw, 17px);
+      line-height: 1.78;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .cadence__para strong {
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       ROLES
+    ============================================================ */
+    .roles {
+      background: #ffffff;
+      padding: clamp(64px, 12vh, 104px) clamp(20px, 5vw, 52px);
+    }
+
+    .roles__intro {
+      margin-bottom: 48px;
+    }
+
+    .roles__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(36px, 8vw, 72px);
+      line-height: 0.92;
+      letter-spacing: -0.025em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.88);
+      margin-bottom: 10px;
+    }
+
+    .roles__sub {
+      font-family: var(--fc);
+      font-size: clamp(14px, 2vw, 18px);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.4);
+    }
+
+    .roles__hiring-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-top: 14px;
+    }
+
+    .roles__hiring-badge::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 7px var(--orange);
+      animation: livePulse 2s ease-in-out infinite;
+    }
+
+    .roles__list {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      margin-bottom: 2px;
+    }
+
+    .roles__list-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      align-items: start;
+    }
+
+    @media (min-width: 640px) {
+      .roles__list-row {
+        grid-template-columns: 1fr auto;
+        gap: 40px;
+        align-items: center;
+      }
+    }
+
+    .role-card__title {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.0;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.88);
+      margin-bottom: 4px;
+    }
+
+    .role-card__cat {
+      font-family: var(--fc);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .role-card__desc {
+      font-size: 14px;
+      line-height: 1.72;
+      color: rgba(0,0,0,0.52);
+      margin-top: 10px;
+    }
+
+    .roles__list-action {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .roles__footer {
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .roles__footer-note {
+      font-family: var(--fc);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       APPLY
+    ============================================================ */
+    .apply {
+      background: var(--dark);
+      padding: clamp(80px, 15vh, 140px) clamp(20px, 6vw, 80px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .apply__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .apply__headline {
+      font-family: var(--fd);
+      font-weight: 900;
+      font-size: clamp(40px, 10vw, 84px);
+      line-height: 0.9;
+      text-transform: uppercase;
+      color: var(--white);
+      letter-spacing: -0.025em;
+      margin-bottom: 40px;
+    }
+
+    .apply__headline em {
+      font-style: normal;
+      color: var(--orange);
+    }
+
+    .apply__body {
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+      max-width: 480px;
+      margin-bottom: 40px;
+    }
+
+    .apply__stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 44px;
+      align-items: flex-start;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      font-family: var(--fc);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      gap: 16px;
+    }
+
+    .btn--primary {
+      background: var(--orange);
+      color: var(--dark);
+      transition: background 0.2s;
+    }
+    .btn--primary:hover { background: #e07100; }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: border-color 0.2s;
+    }
+    .btn--ghost:hover { border-color: rgba(255,255,255,0.5); }
+
+    .btn--muted {
+      background: transparent;
+      color: rgba(0,0,0,0.28);
+      border: 1px solid rgba(0,0,0,0.1);
+      cursor: default;
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: rgba(0,0,0,0.72);
+      border: 1px solid rgba(0,0,0,0.18);
+      transition: border-color 0.2s;
+    }
+    .btn--outline:hover { border-color: rgba(0,0,0,0.4); }
+
+    .apply__contact {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.38);
+    }
+
+    .apply__contact a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+
+    .apply__contact a:hover { text-decoration: underline; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: #fff;
+      padding: 24px clamp(20px, 6vw, 80px);
+    }
+
+    .footer__id {
+      font-family: var(--fc);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.4);
+    }
+
+    .footer__id span { color: var(--orange); }
+
+    .footer__site {
+      font-family: var(--fc);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.3);
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .proof { padding-top: 56px; padding-bottom: 56px; }
+      .proof__text { font-size: clamp(22px, 7.5vw, 72px); }
+      .what { padding-top: 52px; padding-bottom: 52px; }
+      .what__claim { font-size: clamp(22px, 6vw, 56px); }
+      .stack { padding-top: 48px; padding-bottom: 48px; }
+      .operator-view { padding-top: 32px; padding-bottom: 32px; }
+      .operator-quote { padding-top: 56px; padding-bottom: 56px; }
+      .operator-quote__text { font-size: clamp(20px, 5.5vw, 50px); }
+      .cadence { padding-top: 52px; padding-bottom: 52px; }
+      .cadence__headline { font-size: clamp(24px, 6vw, 54px); }
+      .roles { padding-top: 52px; padding-bottom: 52px; }
+      .roles__headline { font-size: clamp(28px, 8vw, 72px); }
+      .apply { padding-top: 56px; padding-bottom: 56px; }
+      .apply__headline { font-size: clamp(30px, 10vw, 84px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAV — concept switcher
+============================================================ -->
+<nav class="cnav">
+  <button class="cnav__tab active" data-c="a">
+    <span class="tab-letter">A</span>
+    <span class="tab-name">All Motion</span>
+  </button>
+  <button class="cnav__tab" data-c="b">
+    <span class="tab-letter">B</span>
+    <span class="tab-name">Crowd + Tech</span>
+  </button>
+  <button class="cnav__tab" data-c="c">
+    <span class="tab-letter">C</span>
+    <span class="tab-name">Events / Tech</span>
+  </button>
+</nav>
+
+<!-- ============================================================
+     HERO — auto-cycling clips (built by JS)
+============================================================ -->
+<section class="hero">
+
+  <div class="hero__reel" id="heroReel"></div>
+
+  <div class="hero__overlay"></div>
+
+  <div class="hero__content">
+    <h1 class="hero__headline">You'd be<br>running this.</h1>
+    <p class="hero__sub">3,400 live. A different stage every week.</p>
+  </div>
+
+  <div class="hero__scene-label" id="heroLabel"></div>
+
+  <div class="hero__progress">
+    <div class="hero__progress-bar" id="progressBar"></div>
+  </div>
+
+</section>
+
+
+<!-- ============================================================
+     WHAT — what you're actually looking at
+============================================================ -->
+<section class="what">
+  <div class="section-label">What this is</div>
+  <div class="what__inner">
+    <p class="what__graph">
+      <strong>Nine LED surfaces — four of them automated moving walls.</strong>
+      You navigate the 3D environment during the service. Not before it. Not after it.
+    </p>
+
+    <div class="what__claim">
+      <span>Scott Lau &nbsp;·&nbsp; Technical Project Manager, Disguise</span>
+      The largest known use of GhostFrame in a live venue. Anywhere.
+    </div>
+
+    <p class="what__graph">
+      A small crew runs this. Same team, every week.
+      <strong>The output is comparable to major touring or broadcast events.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SCENE REEL — scroll through the productions (built by JS)
+============================================================ -->
+<section id="transformation">
+  <div class="scene-sticky">
+    <div class="scroll-wrapper" id="scrollWrapper">
+
+      <div class="scene-ui">
+        <div class="scene-counter" id="scrollCounter">01 / 06</div>
+        <div class="scene-descriptor" id="sceneDescriptor"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STACK — tools and what they do
+============================================================ -->
+<section class="stack">
+  <div class="section-label">The Stack</div>
+  <div class="stack__list">
+
+    <div class="stack__row">
+      <div class="stack__tool">Disguise<br>Gx3+ / Gx3 / Rx3</div>
+      <div class="stack__detail">
+        Compositing, xR, and GhostFrame rendering across <strong>29 servers.</strong>
+      </div>
+    </div>
+
+    <div class="stack__row">
+      <div class="stack__tool">Unreal Engine<br><span style="opacity:0.5;font-size:0.82em">via RenderStream</span></div>
+      <div class="stack__detail">
+        <strong>Navigate the 3D environment during the service.</strong>
+        Adjust perspective, lighting, or time of day live.
+      </div>
+    </div>
+
+    <div class="stack__row">
+      <div class="stack__tool">GhostFrame<br><span style="opacity:0.5;font-size:0.82em">Megapixel HELIOS</span></div>
+      <div class="stack__detail">
+        Two video signals, one LED refresh cycle.
+        The camera captures one reality. The room sees another.
+      </div>
+    </div>
+
+    <div class="stack__row">
+      <div class="stack__tool">RED KOMODO-X 6K<br><span style="opacity:0.5;font-size:0.82em">×8 cameras</span></div>
+      <div class="stack__detail">
+        GhostFrame-integrated. Each camera tracked in 3D space via Stype.
+        <strong>Frame-accurate frustum alignment</strong> — the AR layer locks to the lens, not the room.
+      </div>
+    </div>
+
+    <div class="stack__row">
+      <div class="stack__tool">ROE LED<br><span style="opacity:0.5;font-size:0.82em">9 surfaces</span></div>
+      <div class="stack__detail">
+        BP2v2, BM4, Jasper 2.6, Vanish.
+        <strong>Four surfaces are automated moving walls.</strong>
+        The stage reconfigures between environments.
+      </div>
+    </div>
+
+    <div class="stack__row">
+      <div class="stack__tool">Stype RedSpy<br>Stage Precision<br>TiMax</div>
+      <div class="stack__detail">
+        Camera tracking, spatial calibration, talent positioning.
+        Every element — camera, performer, LED surface — knows
+        <strong>exactly where it is in 3D space.</strong>
+      </div>
+    </div>
+
+    <div class="stack__row">
+      <div class="stack__tool">Ross Ultrix FR12<br>DiGiCo Quantum</div>
+      <div class="stack__detail">
+        4K video routing at 12 Gbps. FOH and monitor mixing.
+        <strong>Broadcast-grade signal chain</strong> — same infrastructure as major live events.
+      </div>
+    </div>
+
+    <div class="stack__row">
+      <div class="stack__tool">L-Acoustics L-ISA</div>
+      <div class="stack__detail">
+        Object-based spatial audio.
+        <strong>Sound position moves with the environment.</strong>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     LOGOS — built with
+============================================================ -->
+<section class="logos">
+  <p class="logos__label">Built with</p>
+  <div class="logos__mask">
+    <div class="logos__track">
+      <div class="logos__item"><img src="../../04-sources/assets/logos/disguise.svg" alt="Disguise" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/unreal-engine.svg" alt="Unreal Engine" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/notch.svg" alt="Notch" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/roe.svg" alt="ROE" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/tait.svg" alt="TAIT" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/ross.svg" alt="Ross" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/megapixel.svg" alt="Megapixel" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/digico.svg" alt="DiGiCo" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/stype.svg" alt="Stype" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/l-acoustics.svg" alt="L-Acoustics" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/stage-precision.svg" alt="Stage Precision" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/carbon-for-unreal.svg" alt="Carbon for Unreal" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/visual-endeavors.svg" alt="Visual Endeavors" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/lightborne.svg" alt="Lightborne" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/silent-partners.svg" alt="Silent Partners Studio" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/possible.svg" alt="Possible" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/luz.svg" alt="Luz" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/raw-cereal.svg" alt="Raw Cereal" /></div>
+      <!-- duplicate for seamless loop -->
+      <div class="logos__item"><img src="../../04-sources/assets/logos/disguise.svg" alt="Disguise" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/unreal-engine.svg" alt="Unreal Engine" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/notch.svg" alt="Notch" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/roe.svg" alt="ROE" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/tait.svg" alt="TAIT" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/ross.svg" alt="Ross" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/megapixel.svg" alt="Megapixel" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/digico.svg" alt="DiGiCo" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/stype.svg" alt="Stype" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/l-acoustics.svg" alt="L-Acoustics" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/stage-precision.svg" alt="Stage Precision" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/carbon-for-unreal.svg" alt="Carbon for Unreal" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/visual-endeavors.svg" alt="Visual Endeavors" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/lightborne.svg" alt="Lightborne" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/silent-partners.svg" alt="Silent Partners Studio" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/possible.svg" alt="Possible" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/luz.svg" alt="Luz" /></div>
+      <div class="logos__item"><img src="../../04-sources/assets/logos/raw-cereal.svg" alt="Raw Cereal" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     OPERATOR QUOTE — Craig Dockery
+============================================================ -->
+<section class="operator-quote">
+  <p class="operator-quote__text">
+    These systems allow <em>a small weekly crew</em> to run a production comparable to
+    <em>major touring or broadcast events.</em>
+  </p>
+  <p class="operator-quote__source">Craig Dockery &nbsp;·&nbsp; Creative Director, Crossroads Church</p>
+</section>
+
+<!-- ============================================================
+     OPERATOR VIEW — what running this looks like
+============================================================ -->
+<section class="operator-view">
+  <div class="operator-view__eyebrow">What running it looks like</div>
+  <div class="operator-view__grid">
+    <div class="operator-view__clip">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="../../04-sources/assets/videos/backstage/programs-1.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="operator-view__clip">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="../../04-sources/assets/videos/backstage/individual.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="operator-view__clip">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="../../04-sources/assets/videos/backstage/grids-1.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CADENCE — why this work is different
+============================================================ -->
+<section class="cadence">
+  <div class="cadence__headline">
+    Not a one-time build.<br>
+    <em>Every seven days.</em>
+  </div>
+  <div class="cadence__body">
+    <p class="cadence__para">
+      3,400 people in the room every Sunday. You know what worked —
+      and what didn't — before the following week begins.
+      <strong>The feedback loop is the job.</strong>
+    </p>
+    <p class="cadence__para">
+      <strong>Not a component of a large pipeline — the pipeline.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     ROLES
+============================================================ -->
+<section class="roles">
+
+  <div class="roles__intro">
+    <h2 class="roles__headline">Work here.</h2>
+    <p class="roles__sub">A small crew. Major touring scale.</p>
+  </div>
+
+  <div class="roles__list">
+
+    <div class="roles__list-row">
+      <div>
+        <div class="role-card__title">Disguise Programmer</div>
+        <div class="role-card__cat">Technology</div>
+        <p class="role-card__desc">Own the Disguise signal chain: server configuration, RenderStream routing, GhostFrame integration, and show stability across 29 media servers and 9 LED surfaces. Running live production, every week.</p>
+      </div>
+      <div class="roles__list-action">
+        <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings/details/Disguise-Programmer_R-100100"
+           class="btn btn--primary" target="_blank" rel="noopener">
+          <span>Apply Now</span>
+          <span>&#8594;</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="roles__list-row">
+      <div>
+        <div class="role-card__title">Technical Artist</div>
+        <div class="role-card__cat">Creative Technology</div>
+        <p class="role-card__desc">Build and iterate real-time Unreal Engine environments for live services and broadcast. Lighting, shaders, materials, world-building inside scenes that run in front of thousands every week.</p>
+      </div>
+      <div class="roles__list-action">
+        <span class="btn btn--muted">
+          <span>Coming Soon</span>
+          <span>&#8594;</span>
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="roles__footer">
+    <p class="roles__footer-note">Creative &middot; Tech &middot; Production &nbsp;&middot;&nbsp; More roles open as the team scales.</p>
+    <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings"
+       class="btn btn--outline" target="_blank" rel="noopener">
+      <span>View All Roles</span>
+      <span>&#8594;</span>
+    </a>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     APPLY
+============================================================ -->
+<section class="apply">
+  <div class="apply__inner">
+    <div class="section-label">Join the team</div>
+    <h2 class="apply__headline">Run it<br>every Sunday.</h2>
+    <p class="apply__body">The system is live. It runs every Sunday in front of 3,400 people. We're building the crew that operates it at this scale, week after week. Experience with this stack matters more than a background in church production.</p>
+    <div class="apply__stack">
+      <a href="https://crossroads.wd108.myworkdayjobs.com/en-US/Crossroads_Joblistings"
+         class="btn btn--primary" target="_blank" rel="noopener">
+        <span>View Open Roles</span>
+        <span>→</span>
+      </a>
+    </div>
+    <p class="apply__contact">
+      Questions about the work or the team?<br>
+      <a href="mailto:wonderwall@crossroads.net">wonderwall@crossroads.net</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer">
+  <div class="footer__id">[footer]</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  const BASE = '../../04-sources/assets/';
+
+  /* ---- Concept data ---- */
+  const CONCEPTS = {
+
+    a: {
+      name: 'All Motion',
+      interval: 4000,
+      hero: [
+        { type: 'video', src: BASE + 'videos/messages/mountain-top.mp4',                         label: 'A Mountaintop &nbsp;&middot;&nbsp; Inside a Room' },
+        { type: 'video', src: BASE + 'videos/messages/lion.mp4',              seek: 12,           label: "Lion's Den &nbsp;&middot;&nbsp; Built in a Day" },
+        { type: 'video', src: BASE + 'videos/messages/rock-water.mp4',                           label: 'Rock &nbsp;&middot;&nbsp; Real Time' },
+        { type: 'video', src: BASE + 'videos/messages/red-sea-part-action.mp4', seek: 7,         label: 'Red Sea &nbsp;&middot;&nbsp; Unreal Engine' },
+        { type: 'video', src: BASE + 'videos/messages/noah-arc-transition.mp4',                  label: "Noah's Ark &nbsp;&middot;&nbsp; Live Scale" },
+        { type: 'video', src: BASE + 'videos/messages/basketball-long.mp4',                      label: 'Live Scale' },
+        { type: 'video', src: BASE + 'videos/messages/scorpian-arena-crush.mp4', seek: 9,        label: 'A Coliseum &nbsp;&middot;&nbsp; On Stage' },
+      ],
+      reel: [
+        { type: 'image', src: BASE + 'images/events/christmas/christmas-performers-forest.webp', descriptor: 'Christmas.\nLive performers.' },
+        { type: 'image', src: BASE + 'images/events/super-bowl/super-bowl-title-screen.webp',    descriptor: 'Super Bowl.\nSame room.' },
+        { type: 'image', src: BASE + 'images/events/journey/journey-roman-wide.webp',            descriptor: 'Ancient Rome.\nFrom Cincinnati.' },
+        { type: 'image', src: BASE + 'images/events/easter/easter-overhead-wide.webp',           descriptor: 'Easter.\n3,400 people.' },
+        { type: 'image', src: BASE + 'images/music/text-2.webp',                                 descriptor: 'Worship.\nEvery week.' },
+        { type: 'image', src: BASE + 'images/events/super-bowl/super-bowl-cathedral-dark.webp',  descriptor: 'Message.\nEvery week.' },
+      ],
+    },
+
+    b: {
+      name: 'Crowd + Tech',
+      interval: 4500,
+      hero: [
+        { type: 'image', src: BASE + 'images/events/christmas/christmas-hero-crowd-forest.webp',  label: '3,400 People &nbsp;&middot;&nbsp; Every Sunday' },
+        { type: 'video', src: BASE + 'videos/messages/red-sea-part-action.mp4', seek: 7,          label: 'Red Sea &nbsp;&middot;&nbsp; Real Time &nbsp;&middot;&nbsp; Unreal Engine' },
+        { type: 'image', src: BASE + 'images/events/super-bowl/super-bowl-orange-concert.webp',   label: 'Super Bowl &nbsp;&middot;&nbsp; Same Stage' },
+        { type: 'video', src: BASE + 'videos/messages/lion.mp4',               seek: 12,          label: "Lion's Den &nbsp;&middot;&nbsp; Built in a Day" },
+        { type: 'image', src: BASE + 'images/events/easter/easter-overhead-wide.webp',            label: 'Easter &nbsp;&middot;&nbsp; 3,400 People' },
+        { type: 'video', src: BASE + 'videos/messages/mountain-top.mp4',                          label: 'A Mountaintop &nbsp;&middot;&nbsp; Inside a Room' },
+      ],
+      reel: [
+        { type: 'image', src: BASE + 'images/events/christmas/christmas-performers-forest.webp', descriptor: 'Christmas.\nLive performers.' },
+        { type: 'image', src: BASE + 'images/events/super-bowl/super-bowl-title-screen.webp',    descriptor: 'Super Bowl.\nSame room.' },
+        { type: 'image', src: BASE + 'images/events/journey/journey-roman-wide.webp',            descriptor: 'Ancient Rome.\nFrom Cincinnati.' },
+        { type: 'image', src: BASE + 'images/music/text-2.webp',                                 descriptor: 'Worship.\nEvery week.' },
+        { type: 'image', src: BASE + 'images/events/super-bowl/super-bowl-cathedral-dark.webp',  descriptor: 'Message.\nEvery week.' },
+        { type: 'image', src: BASE + 'images/events/easter/easter-hands-raised.webp',            descriptor: 'The response.\nEvery week.' },
+      ],
+    },
+
+    c: {
+      name: 'Events / Tech',
+      interval: 3000,
+      hero: [
+        { type: 'image', src: BASE + 'images/events/christmas/christmas-hero-crowd-forest.webp',  label: 'Christmas 2025 &nbsp;&middot;&nbsp; 3,400 People' },
+        { type: 'image', src: BASE + 'images/events/super-bowl/super-bowl-videogame-led.webp',    label: 'Super Bowl &nbsp;&middot;&nbsp; Same Stage' },
+        { type: 'image', src: BASE + 'images/events/journey/journey-roman-wide.webp',             label: 'Journey Series &nbsp;&middot;&nbsp; Ancient Rome' },
+        { type: 'image', src: BASE + 'images/events/super-bowl/super-bowl-cathedral-dark.webp',   label: 'Message &nbsp;&middot;&nbsp; Every Week' },
+        { type: 'image', src: BASE + 'images/events/easter/easter-overhead-wide.webp',            label: 'Easter &nbsp;&middot;&nbsp; 3,400 People' },
+        { type: 'image', src: BASE + 'images/events/christmas/christmas-performers-forest.webp',  label: 'Christmas &nbsp;&middot;&nbsp; Live Performers' },
+      ],
+      reel: [
+        { type: 'video', src: BASE + 'videos/messages/mountain-top.mp4',                          descriptor: 'A mountaintop.\nInside a room.' },
+        { type: 'video', src: BASE + 'videos/messages/lion.mp4',              seek: 12,           descriptor: "Lion's Den.\nBuilt in a day." },
+        { type: 'video', src: BASE + 'videos/messages/rock-water.mp4',                            descriptor: 'Rock.\nReal time.' },
+        { type: 'video', src: BASE + 'videos/messages/red-sea-part-action.mp4', seek: 7,          descriptor: 'Red Sea.\nReal time. Unreal Engine.' },
+        { type: 'video', src: BASE + 'videos/messages/noah-arc-transition.mp4',                   descriptor: "Noah's Ark.\nTo scale." },
+        { type: 'video', src: BASE + 'videos/messages/basketball-long.mp4',                       descriptor: 'Live scale.' },
+        { type: 'video', src: BASE + 'videos/messages/scorpian-arena-crush.mp4', seek: 9,         descriptor: 'A coliseum.\nOn stage.' },
+      ],
+    },
+
+  };
+
+  /* ---- State ---- */
+  let activeConcept = 'a';
+  let heroCurrent   = 0;
+  let heroTimer     = null;
+  let sceneActive   = 0;
+  let descTimer     = null;
+  let st            = null;
+
+  /* ---- DOM refs ---- */
+  const heroReel      = document.getElementById('heroReel');
+  const heroLabel     = document.getElementById('heroLabel');
+  const progressBar   = document.getElementById('progressBar');
+  const scrollWrapper = document.getElementById('scrollWrapper');
+  const scrollCounter = document.getElementById('scrollCounter');
+  const descriptor    = document.getElementById('sceneDescriptor');
+
+  /* ---- Progress bar ---- */
+  function startProgress(ms) {
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    void progressBar.offsetWidth;
+    progressBar.style.transition = `width ${ms / 1000}s linear`;
+    progressBar.style.width = '100%';
+  }
+
+  /* ---- Hero label crossfade ---- */
+  function updateLabel(html) {
+    heroLabel.classList.add('fade');
+    setTimeout(() => { heroLabel.innerHTML = html; heroLabel.classList.remove('fade'); }, 220);
+  }
+
+  /* ---- Advance hero ---- */
+  function advanceHero() {
+    const clips    = heroReel.querySelectorAll('.hero__clip');
+    const interval = CONCEPTS[activeConcept].interval;
+    const next     = (heroCurrent + 1) % clips.length;
+    const nextVid  = clips[next].querySelector('video');
+    const seekTo   = parseFloat(clips[next].dataset.seek || '0');
+
+    function doSwitch() {
+      clips[heroCurrent].classList.remove('active');
+      const curVid = clips[heroCurrent].querySelector('video');
+      if (curVid) {
+        curVid.pause();
+        curVid.currentTime = parseFloat(clips[heroCurrent].dataset.seek || '0');
+      }
+      clips[next].classList.add('active');
+      if (nextVid) nextVid.play().catch(() => {});
+      updateLabel(clips[next].dataset.label || '');
+      heroCurrent = next;
+      startProgress(interval);
+    }
+
+    if (nextVid) {
+      nextVid.currentTime = seekTo;
+      nextVid.addEventListener('seeked', doSwitch, { once: true });
+    } else {
+      doSwitch();
+    }
+  }
+
+  /* ---- Build hero ---- */
+  function buildHero(key) {
+    clearInterval(heroTimer);
+    heroReel.innerHTML = '';
+    heroCurrent = 0;
+    const concept = CONCEPTS[key];
+
+    concept.hero.forEach((clip, i) => {
+      const div = document.createElement('div');
+      div.className = 'hero__clip' + (i === 0 ? ' active' : '');
+      div.dataset.label = clip.label || '';
+      if (clip.seek) div.dataset.seek = clip.seek;
+
+      if (clip.type === 'video') {
+        const vid = document.createElement('video');
+        vid.muted = true;
+        vid.setAttribute('playsinline', '');
+        vid.preload = 'auto';
+        const src = document.createElement('source');
+        src.src = clip.src; src.type = 'video/mp4';
+        vid.appendChild(src);
+        div.appendChild(vid);
+
+        if (clip.seek) {
+          const s = parseFloat(clip.seek);
+          vid.loop = false;
+          vid.addEventListener('timeupdate', function() {
+            if (this.duration && this.currentTime >= this.duration - 0.8) this.currentTime = s;
+          });
+          vid.addEventListener('ended', function() {
+            this.currentTime = s;
+            if (div.classList.contains('active')) this.play().catch(() => {});
+          });
+          vid.addEventListener('loadedmetadata', function() { this.currentTime = s; }, { once: true });
+        } else {
+          vid.loop = true;
+        }
+        if (i === 0) vid.play().catch(() => {});
+
+      } else {
+        const img = document.createElement('img');
+        img.src = clip.src; img.alt = '';
+        div.appendChild(img);
+      }
+
+      heroReel.appendChild(div);
+    });
+
+    heroLabel.innerHTML = concept.hero[0].label || '';
+    startProgress(concept.interval);
+    heroTimer = setInterval(advanceHero, concept.interval);
+  }
+
+  /* ---- Build reel ---- */
+  function buildReel(key) {
+    const scenes = CONCEPTS[key].reel;
+
+    scrollWrapper.querySelectorAll('.scene-layer').forEach(el => el.remove());
+
+    scenes.forEach((scene, i) => {
+      const div = document.createElement('div');
+      div.className = 'scene-layer' + (i === 0 ? ' active' : '');
+      div.dataset.descriptor = scene.descriptor || '';
+      if (scene.seek) div.dataset.seek = scene.seek;
+
+      if (scene.type === 'video') {
+        const vid = document.createElement('video');
+        vid.muted = true; vid.setAttribute('playsinline', ''); vid.preload = 'none';
+        const src = document.createElement('source');
+        src.src = scene.src; src.type = 'video/mp4';
+        vid.appendChild(src);
+        div.appendChild(vid);
+        if (scene.seek) {
+          const s = parseFloat(scene.seek);
+          vid.loop = false;
+          vid.addEventListener('timeupdate', function() {
+            if (this.duration && this.currentTime >= this.duration - 0.8) this.currentTime = s;
+          });
+          vid.addEventListener('ended', function() { this.currentTime = s; this.play().catch(() => {}); });
+        } else {
+          vid.loop = true;
+        }
+      } else {
+        const img = document.createElement('img');
+        img.src = scene.src; img.alt = '';
+        img.loading = i === 0 ? 'eager' : 'lazy';
+        div.appendChild(img);
+      }
+
+      scrollWrapper.insertBefore(div, scrollWrapper.querySelector('.scene-ui'));
+    });
+
+    sceneActive = 0;
+    const n = scenes.length;
+    scrollCounter.textContent = `01 / ${String(n).padStart(2, '0')}`;
+    descriptor.textContent = '';
+    descriptor.classList.remove('visible');
+
+    document.getElementById('transformation').style.height = (n * 100) + 'vh';
+
+    if (st) { st.kill(); st = null; }
+
+    st = ScrollTrigger.create({
+      trigger: '#transformation',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 0.1,
+      onUpdate(self) {
+        const layers   = scrollWrapper.querySelectorAll('.scene-layer');
+        const p        = self.progress;
+        const expStart = (n - 1) / n;
+        const inExp    = p >= expStart;
+        const sceneP   = Math.min(p / (inExp ? expStart : 1), 1);
+        const idx      = Math.min(Math.floor(sceneP * n), n - 1);
+
+        if (idx !== sceneActive) {
+          layers[sceneActive].classList.remove('active');
+          const prev = layers[sceneActive].querySelector('video');
+          if (prev) prev.pause();
+
+          layers[idx].classList.add('active');
+          const vid = layers[idx].querySelector('video');
+          if (vid) {
+            const s = parseFloat(layers[idx].dataset.seek || '0');
+            if (s > 0) vid.currentTime = s;
+            vid.play().catch(() => {});
+          }
+
+          scrollCounter.textContent = `${String(idx + 1).padStart(2, '0')} / ${String(n).padStart(2, '0')}`;
+          descriptor.classList.remove('visible');
+          clearTimeout(descTimer);
+          const text = layers[idx].dataset.descriptor;
+          if (text) {
+            descTimer = setTimeout(() => {
+              descriptor.innerHTML = text.replace(/\n/g, '<br>');
+              descriptor.classList.add('visible');
+            }, 100);
+          } else {
+            descriptor.textContent = '';
+          }
+          sceneActive = idx;
+        }
+
+        if (inExp) {
+          const t     = Math.min((p - expStart) / (1 / n), 1);
+          const baseW = window.innerWidth < 768 ? 92 : 80;
+          scrollWrapper.style.width   = (baseW + t * (100 - baseW)) + 'vw';
+          scrollWrapper.style.opacity = t > 0.6 ? String(1 - (t - 0.6) / 0.4) : '1';
+        } else {
+          scrollWrapper.style.width   = window.innerWidth < 768 ? '92vw' : '80vw';
+          scrollWrapper.style.opacity = '1';
+        }
+      }
+    });
+  }
+
+  /* ---- Concept switching ---- */
+  document.querySelectorAll('.cnav__tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.c === activeConcept) return;
+      activeConcept = btn.dataset.c;
+      document.querySelectorAll('.cnav__tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      buildHero(activeConcept);
+      buildReel(activeConcept);
+    });
+  });
+
+  /* ---- Init ---- */
+  buildHero('a');
+  buildReel('a');
+
+  window.setAsset = function(key) {
+    if (key === activeConcept) return;
+    activeConcept = key;
+    document.querySelectorAll('.cnav__tab').forEach(t => t.classList.remove('active'));
+    const tab = document.querySelector(`.cnav__tab[data-c="${key}"]`);
+    if (tab) tab.classList.add('active');
+    buildHero(key);
+    buildReel(key);
+  };
+
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.type === 'setAsset') window.setAsset(e.data.key);
+  });
+</script>
+</body>
+</html>
