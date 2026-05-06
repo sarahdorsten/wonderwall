@@ -988,13 +988,13 @@
 
   <!-- NAV -->
   <nav class="cnav">
-    <button class="cnav__tab" data-c="a">
+    <button class="cnav__tab active" data-c="a">
       <span class="tab-name">A. All Motion</span>
     </button>
     <button class="cnav__tab" data-c="b">
       <span class="tab-name">B. Motion + Stills</span>
     </button>
-    <button class="cnav__tab active" data-c="c">
+    <button class="cnav__tab" data-c="c">
       <span class="tab-name">C. Events</span>
     </button>
   </nav>
@@ -1362,7 +1362,7 @@
     const heroReel    = document.getElementById('heroReel');
     const heroLabel   = document.getElementById('heroLabel');
     const progressBar = document.getElementById('progressBar');
-    let activeConcept = 'c';
+    let activeConcept = 'a';
     let heroCurrent   = 0;
     let heroTimer     = null;
 
@@ -1523,8 +1523,8 @@
       });
     });
 
-    buildHero('c');
-    buildReel('c');
+    buildHero('a');
+    buildReel('a');
 
     window.setAsset = function(key) {
       if (key === activeConcept) return;
