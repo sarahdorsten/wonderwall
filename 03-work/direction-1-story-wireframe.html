@@ -192,6 +192,40 @@
       color: var(--ink);
     }
 
+    .version-switch {
+      grid-column: 2;
+      justify-self: center;
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 4px;
+      background: rgba(0, 0, 0, 0.44);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      backdrop-filter: blur(10px);
+    }
+
+    .version-switch button {
+      min-height: 36px;
+      min-width: 92px;
+      padding: 0 14px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: 0;
+      cursor: pointer;
+    }
+
+    .version-switch button[aria-pressed="true"] {
+      background: white;
+      color: var(--ink);
+    }
+
     body[data-concept="recommendation"] .client-spec-section {
       display: none;
     }
@@ -219,6 +253,60 @@
     body[data-hero="static"] .hero-progress,
     body[data-hero="static"] .hero-constellation {
       display: none;
+    }
+
+    body[data-version="dark"] #proof,
+    body[data-version="dark"] .capability-section,
+    body[data-version="dark"] #roles {
+      background: #080808;
+      color: white;
+      box-shadow: 0 0 0 100vmax #080808;
+      clip-path: inset(0 -100vmax);
+    }
+
+    body[data-version="dark"] #proof::before,
+    body[data-version="dark"] .capability-section::before,
+    body[data-version="dark"] #roles::before,
+    body[data-version="dark"] .story-band + #roles::before,
+    body[data-version="dark"] #roles + .section::before {
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    body[data-version="dark"] #proof p,
+    body[data-version="dark"] .capability-section p,
+    body[data-version="dark"] #roles p,
+    body[data-version="dark"] .capability-section .small,
+    body[data-version="dark"] .role-copy p,
+    body[data-version="dark"] .partner-proof-intro h2 {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    body[data-version="dark"] #proof h2,
+    body[data-version="dark"] #proof p,
+    body[data-version="dark"] .capability-section h2,
+    body[data-version="dark"] .capability-section h3,
+    body[data-version="dark"] #roles h2,
+    body[data-version="dark"] #roles h3,
+    body[data-version="dark"] #roles cite,
+    body[data-version="dark"] .role-note,
+    body[data-version="dark"] .role-note a {
+      color: white;
+    }
+
+    body[data-version="dark"] .capability-media {
+      border-color: rgba(255, 255, 255, 0.86);
+      background: #111;
+      box-shadow: 8px 8px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    body[data-version="dark"] .role {
+      border-color: rgba(255, 255, 255, 0.28);
+    }
+
+    body[data-version="dark"] #roles .button {
+      border-color: white;
+      background: white;
+      color: var(--ink);
     }
 
     .recommendation-logo-section {
@@ -1396,16 +1484,25 @@
         min-height: 72px;
         gap: 12px;
         padding: 12px 14px;
+        grid-template-columns: minmax(0, 1fr) auto;
       }
 
       .site-header img {
         height: 22px;
       }
 
+      .version-switch {
+        order: 3;
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        justify-content: center;
+      }
+
       .header-cta {
         min-height: 40px;
         padding: 0 18px;
         font-size: 14px;
+        grid-column: 2;
       }
 
       .capability,
@@ -1438,9 +1535,13 @@
     }
   </style>
 </head>
-<body data-concept="client-ask" data-hero="static">
+<body data-concept="client-ask" data-hero="static" data-version="light">
   <div class="site-header">
     <img src="../04-sources/assets/logos/crossroads.svg" alt="Crossroads">
+    <div class="version-switch" role="group" aria-label="Choose wireframe version">
+      <button type="button" data-version-toggle="light" aria-pressed="true">Version A</button>
+      <button type="button" data-version-toggle="dark" aria-pressed="false">Version B</button>
+    </div>
     <a class="header-cta" href="#roles">Join us</a>
   </div>
   <main class="page">
@@ -1504,7 +1605,7 @@
       <p class="opening-subcopy">Join us on an ambitious journey as we explore the possibilities of storytelling in the digital age. Think The Vegas Sphere, but built to tell stories that change lives.</p>
     </section>
 
-    <section class="section">
+    <section class="section capability-section">
       <div class="capabilities">
         <article class="capability">
           <div class="capability-media marker">
@@ -1723,7 +1824,7 @@
       </div>
     </section>
 
-    <section class="section dimension-band">
+    <section class="section dimension-band team-band">
       <div class="dimension-inner">
         <div class="discipline-grid" aria-label="Wonderwall team disciplines">
           <article class="discipline-card">
@@ -1751,7 +1852,7 @@
       </div>
     </section>
 
-    <section class="section dimension-band">
+    <section class="section dimension-band story-band">
       <div class="dimension-inner">
         <div class="story-showcase">
           <div class="story-list" aria-label="Story examples">
@@ -2092,6 +2193,22 @@
 
       toggles.forEach((toggle) => {
         toggle.addEventListener("click", () => setConcept(toggle.dataset.conceptToggle));
+      });
+    })();
+
+    (() => {
+      const toggles = Array.from(document.querySelectorAll("[data-version-toggle]"));
+      if (!toggles.length) return;
+
+      const setVersion = (target) => {
+        document.body.dataset.version = target;
+        toggles.forEach((toggle) => {
+          toggle.setAttribute("aria-pressed", toggle.dataset.versionToggle === target ? "true" : "false");
+        });
+      };
+
+      toggles.forEach((toggle) => {
+        toggle.addEventListener("click", () => setVersion(toggle.dataset.versionToggle));
       });
     })();
 
